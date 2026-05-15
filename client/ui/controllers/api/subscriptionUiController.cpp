@@ -98,8 +98,7 @@ bool SubscriptionUiController::exportVpnKey(const QString &serverId, const QStri
         return false;
     }
 
-    SystemController::saveFile(fileName, m_vpnKey);
-    return true;
+    return SystemController::saveFile(fileName, m_vpnKey);
 }
 
 
@@ -117,8 +116,9 @@ bool SubscriptionUiController::exportNativeConfig(const QString &serverId, const
         return false;
     }
 
-    SystemController::saveFile(fileName, nativeConfig);
-    return true;
+    const bool saved = SystemController::saveFile(fileName, nativeConfig);
+    getAccountInfo(serverIndex, true);
+    return saved;
 }
 
 
