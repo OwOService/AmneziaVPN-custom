@@ -117,7 +117,7 @@ bool SubscriptionUiController::exportNativeConfig(const QString &serverId, const
     }
 
     const bool saved = SystemController::saveFile(fileName, nativeConfig);
-    getAccountInfo(serverIndex, true);
+    getAccountInfo(serverId, true);
     return saved;
 }
 
