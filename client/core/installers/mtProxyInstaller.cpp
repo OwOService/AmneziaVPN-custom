@@ -68,11 +68,11 @@ ErrorCode MtProxyInstaller::extractConfigFromContainer(DockerContainer container
 }
 
 ErrorCode MtProxyInstaller::queryDiagnostics(SshSession &sshSession, const ServerCredentials &credentials,
-                                              DockerContainer container, int listenPort,
-                                              MtProxyContainerDiagnostics &out)
+                                             DockerContainer container, int listenPort,
+                                             MtProxyContainerDiagnostics &out)
 {
     out = {};
-    if (container != DockerContainer::MtProxy) {
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
         return ErrorCode::InternalError;
     }
     const QString containerName = ContainerUtils::containerToString(container);

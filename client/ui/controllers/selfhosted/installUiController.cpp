@@ -50,6 +50,7 @@ InstallUiController::InstallUiController(InstallController *installController,
                                          SftpConfigModel *sftpConfigModel,
                                          Socks5ProxyConfigModel *socks5ConfigModel,
                                          MtProxyConfigModel* mtConfigModel,
+                                         TelemtConfigModel *telemtConfigModel,
                                          QObject *parent)
     : QObject(parent),
       m_installController(installController),
@@ -67,7 +68,8 @@ InstallUiController::InstallUiController(InstallController *installController,
 #endif
       m_sftpConfigModel(sftpConfigModel),
       m_socks5ConfigModel(socks5ConfigModel),
-      m_mtProxyConfigModel(mtConfigModel)
+      m_mtProxyConfigModel(mtConfigModel),
+      m_telemtConfigModel(telemtConfigModel)
 {
     connect(m_installController, &InstallController::configValidated, this, &InstallUiController::configValidated);
     connect(m_installController, &InstallController::validationErrorOccurred, this, [this](ErrorCode errorCode) {
@@ -246,6 +248,10 @@ void InstallUiController::updateContainer(const QString &serverId, int container
         containerConfig.protocolConfig = m_mtProxyConfigModel->getProtocolConfig();
         break;
     }
+    case Proto::Telemt: {
+        containerConfig.protocolConfig = m_telemtConfigModel->getProtocolConfig();
+        break;
+    }
 #ifdef Q_OS_WINDOWS
     case Proto::Ikev2: {
         containerConfig.protocolConfig = m_ikev2ConfigModel->getProtocolConfig();
@@ -257,7 +263,7 @@ void InstallUiController::updateContainer(const QString &serverId, int container
     }
     ContainerConfig oldContainerConfig = m_serversController->getContainerConfig(serverId, container);
 
-    if (container == DockerContainer::MtProxy) {
+    if (container == DockerContainer::MtProxy || container == DockerContainer::Telemt) {
         emit serverIsBusy(true);
         auto *watcher = new QFutureWatcher<ErrorCode>(this);
         QObject::connect(watcher, &QFutureWatcher<ErrorCode>::finished, this,
@@ -317,6 +323,9 @@ void InstallUiController::updateContainer(const QString &serverId, int container
 void InstallUiController::setContainerEnabled(const QString &serverId, int containerIndex, bool enabled)
 {
     const DockerContainer container = static_cast<DockerContainer>(containerIndex);
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return;
+    }
 
     emit serverIsBusy(true);
     const ErrorCode errorCode = m_installController->setDockerContainerEnabledState(serverId, container, enabled);
@@ -335,6 +344,10 @@ void InstallUiController::setContainerEnabled(const QString &serverId, int conta
 void InstallUiController::refreshContainerStatus(const QString &serverId, int containerIndex)
 {
     const DockerContainer container = static_cast<DockerContainer>(containerIndex);
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return;
+    }
+
     int status = 3;
     const ErrorCode errorCode = m_installController->queryDockerContainerStatus(serverId, container, status);
     if (errorCode != ErrorCode::NoError) {
@@ -347,6 +360,10 @@ void InstallUiController::refreshContainerStatus(const QString &serverId, int co
 void InstallUiController::refreshContainerDiagnostics(const QString &serverId, int containerIndex, int port)
 {
     const DockerContainer container = static_cast<DockerContainer>(containerIndex);
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return;
+    }
+
     MtProxyContainerDiagnostics diag;
     const ErrorCode errorCode = m_installController->queryMtProxyDiagnostics(serverId, container, port, diag);
     if (errorCode != ErrorCode::NoError) {
@@ -360,6 +377,10 @@ void InstallUiController::refreshContainerDiagnostics(const QString &serverId, i
 void InstallUiController::fetchContainerSecret(const QString &serverId, int containerIndex)
 {
     const DockerContainer container = static_cast<DockerContainer>(containerIndex);
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return;
+    }
+
     const QString secret = m_installController->fetchDockerContainerSecret(serverId, container);
     emit containerSecretFetched(secret);
 }
@@ -576,6 +597,7 @@ void InstallUiController::updateProtocolConfigModel(const QString &serverId, int
     case Proto::Sftp: updateIfPresent(m_sftpConfigModel, containerConfig.getSftpProtocolConfig()); break;
     case Proto::Socks5Proxy: updateIfPresent(m_socks5ConfigModel, containerConfig.getSocks5ProxyProtocolConfig()); break;
     case Proto::MtProxy: updateIfPresent(m_mtProxyConfigModel, containerConfig.getMtProxyProtocolConfig()); break;
+    case Proto::Telemt: updateIfPresent(m_telemtConfigModel, containerConfig.getTelemtProtocolConfig()); break;
 #ifdef Q_OS_WINDOWS
     case Proto::Ikev2: updateIfPresent(m_ikev2ConfigModel, containerConfig.getIkev2ProtocolConfig()); break;
 #endif

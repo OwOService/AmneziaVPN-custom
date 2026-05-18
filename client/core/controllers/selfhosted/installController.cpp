@@ -20,6 +20,7 @@
 #include "core/installers/sftpInstaller.h"
 #include "core/installers/socks5Installer.h"
 #include "core/installers/mtProxyInstaller.h"
+#include "core/installers/telemtInstaller.h"
 #include "core/installers/torInstaller.h"
 #include "core/installers/wireguardInstaller.h"
 #include "core/installers/xrayInstaller.h"
@@ -157,6 +158,10 @@ ErrorCode InstallController::updateContainer(const QString &serverId, DockerCont
             ServerCredentials credentials = adminConfig->credentials();
             SshSession sshSession(this);
             MtProxyInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, newConfig);
+        } else if (container == DockerContainer::Telemt) {
+            ServerCredentials credentials = adminConfig->credentials();
+            SshSession sshSession(this);
+            TelemtInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, newConfig);
         }
         adminConfig->updateContainerConfig(container, newConfig);
         m_serversRepository->editServer(serverId, adminConfig->toJson(), serverConfigUtils::ConfigType::SelfHostedAdmin);
@@ -189,6 +194,8 @@ ErrorCode InstallController::updateContainer(const QString &serverId, DockerCont
     if (errorCode == ErrorCode::NoError) {
         if (container == DockerContainer::MtProxy) {
             MtProxyInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, newConfig);
+        } else if (container == DockerContainer::Telemt) {
+            TelemtInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, newConfig);
         }
         clearCachedProfile(serverId, container);
         adminConfig->updateContainerConfig(container, newConfig);
@@ -446,6 +453,8 @@ ErrorCode InstallController::configureContainerWorker(const ServerCredentials &c
 
     if (container == DockerContainer::MtProxy) {
         MtProxyInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, config);
+    } else if (container == DockerContainer::Telemt) {
+        TelemtInstaller::uploadClientSettingsSnapshot(sshSession, credentials, container, config);
     }
 
     return ErrorCode::NoError;
@@ -622,6 +631,53 @@ bool InstallController::isReinstallContainerRequired(DockerContainer container, 
                 return true;
             }
             if (oldMt->tlsDomain != newMt->tlsDomain) {
+                return true;
+            }
+        }
+    }
+
+    if (container == DockerContainer::Telemt) {
+        const auto *oldT = oldConfig.getTelemtProtocolConfig();
+        const auto *newT = newConfig.getTelemtProtocolConfig();
+        if (oldT && newT) {
+            const QString oldPort =
+                    oldT->port.isEmpty() ? QString(protocols::telemt::defaultPort) : oldT->port;
+            const QString newPort =
+                    newT->port.isEmpty() ? QString(protocols::telemt::defaultPort) : newT->port;
+            if (oldPort != newPort) {
+                return true;
+            }
+            const QString oldTransport = oldT->transportMode.isEmpty()
+                    ? QString(protocols::telemt::transportModeStandard)
+                    : oldT->transportMode;
+            const QString newTransport = newT->transportMode.isEmpty()
+                    ? QString(protocols::telemt::transportModeStandard)
+                    : newT->transportMode;
+            if (oldTransport != newTransport) {
+                return true;
+            }
+            if (oldT->tlsDomain != newT->tlsDomain) {
+                return true;
+            }
+            if (oldT->maskEnabled != newT->maskEnabled) {
+                return true;
+            }
+            if (oldT->tlsEmulation != newT->tlsEmulation) {
+                return true;
+            }
+            if (oldT->useMiddleProxy != newT->useMiddleProxy) {
+                return true;
+            }
+            if (oldT->tag != newT->tag) {
+                return true;
+            }
+            const QString oldUser = oldT->userName.isEmpty()
+                    ? QString::fromUtf8(protocols::telemt::defaultUserName)
+                    : oldT->userName;
+            const QString newUser = newT->userName.isEmpty()
+                    ? QString::fromUtf8(protocols::telemt::defaultUserName)
+                    : newT->userName;
+            if (oldUser != newUser) {
                 return true;
             }
         }
@@ -888,6 +944,7 @@ QScopedPointer<InstallerBase> InstallController::createInstaller(DockerContainer
     case DockerContainer::Sftp: return QScopedPointer<InstallerBase>(new SftpInstaller(this));
     case DockerContainer::Socks5Proxy: return QScopedPointer<InstallerBase>(new Socks5Installer(this));
     case DockerContainer::MtProxy: return QScopedPointer<InstallerBase>(new MtProxyInstaller(this));
+    case DockerContainer::Telemt: return QScopedPointer<InstallerBase>(new TelemtInstaller(this));
     default: return QScopedPointer<InstallerBase>(new InstallerBase(this));
     }
 }
@@ -933,6 +990,13 @@ bool InstallController::isUpdateDockerContainerRequired(DockerContainer containe
             return true;
         }
         return !oldMt->equalsDockerDeploymentSettings(*newMt);
+    } else if (container == DockerContainer::Telemt) {
+        const auto *oldT = oldConfig.getTelemtProtocolConfig();
+        const auto *newT = newConfig.getTelemtProtocolConfig();
+        if (!oldT || !newT) {
+            return true;
+        }
+        return !oldT->equalsDockerDeploymentSettings(*newT);
     }
 
     return true;
@@ -1261,6 +1325,31 @@ void InstallController::updateContainerConfigAfterInstallation(DockerContainer c
                 mtProxyConfig->tmeLink = mTmeLink.captured(1);
             }
         }
+    } else if (container == DockerContainer::Telemt) {
+        if (auto *telemtConfig = containerConfig.getTelemtProtocolConfig()) {
+            qDebug() << "amnezia-telemt configure stdout" << stdOut;
+
+            static const QRegularExpression reSecret(
+                    QStringLiteral(R"(\[\*\]\s+Secret:\s+([0-9a-fA-F]{32}))"),
+                    QRegularExpression::CaseInsensitiveOption);
+            static const QRegularExpression reTgLink(QStringLiteral(R"(\[\*\]\s+tg://\s+link:\s+(tg://proxy\?[^\s]+))"));
+            static const QRegularExpression reTmeLink(
+                    QStringLiteral(R"(\[\*\]\s+t\.me\s+link:\s+(https://t\.me/proxy\?[^\s]+))"));
+
+            const QRegularExpressionMatch mSecret = reSecret.match(stdOut);
+            const QRegularExpressionMatch mTgLink = reTgLink.match(stdOut);
+            const QRegularExpressionMatch mTmeLink = reTmeLink.match(stdOut);
+
+            if (mSecret.hasMatch()) {
+                telemtConfig->secret = mSecret.captured(1);
+            }
+            if (mTgLink.hasMatch()) {
+                telemtConfig->tgLink = mTgLink.captured(1);
+            }
+            if (mTmeLink.hasMatch()) {
+                telemtConfig->tmeLink = mTmeLink.captured(1);
+            }
+        }
     }
 }
 
@@ -1348,6 +1437,9 @@ ErrorCode InstallController::getAlreadyInstalledContainers(const ServerCredentia
 
 ErrorCode InstallController::setDockerContainerEnabledState(const QString &serverId, DockerContainer container, bool enabled)
 {
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return ErrorCode::InternalError;
+    }
     auto adminConfig = m_serversRepository->selfHostedAdminConfig(serverId);
     if (!adminConfig.has_value()) {
         return ErrorCode::InternalError;
@@ -1365,8 +1457,15 @@ ErrorCode InstallController::setDockerContainerEnabledState(const QString &serve
         return runError;
     }
     ContainerConfig currentConfig = adminConfig->containerConfig(container);
+    bool persist = false;
     if (auto *mtConfig = currentConfig.getMtProxyProtocolConfig()) {
         mtConfig->isEnabled = enabled;
+        persist = true;
+    } else if (auto *telemtConfig = currentConfig.getTelemtProtocolConfig()) {
+        telemtConfig->isEnabled = enabled;
+        persist = true;
+    }
+    if (persist) {
         adminConfig->updateContainerConfig(container, currentConfig);
         m_serversRepository->editServer(serverId, adminConfig->toJson(), serverConfigUtils::ConfigType::SelfHostedAdmin);
     }
@@ -1430,6 +1529,9 @@ ErrorCode InstallController::queryMtProxyDiagnostics(const QString &serverId, Do
 
 QString InstallController::fetchDockerContainerSecret(const QString &serverId, DockerContainer container)
 {
+    if (container != DockerContainer::MtProxy && container != DockerContainer::Telemt) {
+        return {};
+    }
     auto adminConfig = m_serversRepository->selfHostedAdminConfig(serverId);
     if (!adminConfig.has_value()) {
         return {};
