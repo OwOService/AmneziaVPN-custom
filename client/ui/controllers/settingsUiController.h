@@ -71,6 +71,12 @@ public slots:
     bool isNewsNotificationsEnabled();
     void toggleNewsNotificationsEnabled(bool enable);
 
+    bool isOledThemeEnabled();
+    void toggleOledThemeEnabled(bool enable);
+
+    int accentColorHue();
+    void setAccentColorHue(int hue);
+
     bool isScreenshotsEnabled();
     void toggleScreenshotsEnabled(bool enable);
 

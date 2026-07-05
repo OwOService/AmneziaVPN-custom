@@ -92,13 +92,19 @@ void ConnectionUiController::onConnectionStateChanged(Vpn::ConnectionState state
     case Vpn::ConnectionState::Error: {
         m_isConnectionInProgress = false;
         m_connectionStateText = tr("Connect");
-        emit connectionErrorOccurred(getLastConnectionError());
+        const QString detail = m_connectionController->lastErrorDetail();
+        if (detail.isEmpty()) {
+            emit connectionErrorOccurred(getLastConnectionError());
+        } else {
+            emit connectionErrorOccurredWithDetail(getLastConnectionError(), detail);
+        }
         break;
     }
     case Vpn::ConnectionState::Unknown: {
         m_isConnectionInProgress = false;
         m_connectionStateText = tr("Connect");
         emit connectionErrorOccurred(getLastConnectionError());
+        emit connectionErrorOccurredWithDetail(getLastConnectionError(), m_connectionController->lastErrorDetail());
         break;
     }
     }

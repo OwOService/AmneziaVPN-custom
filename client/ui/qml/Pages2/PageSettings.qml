@@ -105,6 +105,7 @@ PageType {
         servers,
         connection,
         application,
+        personalization,
         news,
         backup,
         about,
@@ -141,6 +142,19 @@ PageType {
         property bool isVisible: true
         readonly property var clickedHandler: function() {
             PageController.goToPage(PageEnum.PageSettingsApplication)
+        }
+    }
+
+    QtObject {
+        id: personalization
+
+        // TODO: swap for a dedicated palette/theme icon once one is added to the asset set —
+        // monitor.svg is a placeholder, not a perfect fit for "appearance".
+        property string title: qsTr("Personalization")
+        readonly property string leftImagePath: "qrc:/images/controls/monitor.svg"
+        property bool isVisible: true
+        readonly property var clickedHandler: function() {
+            PageController.goToPage(PageEnum.PageSettingsPersonalization)
         }
     }
 

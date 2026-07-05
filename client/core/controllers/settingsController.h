@@ -59,6 +59,12 @@ public:
     bool isNewsNotificationsEnabled() const;
     void toggleNewsNotificationsEnabled(bool enable);
 
+    bool isOledThemeEnabled() const;
+    void toggleOledThemeEnabled(bool enable);
+
+    int accentColorHue() const;
+    void setAccentColorHue(int hue);
+
     bool isKillSwitchEnabled() const;
     void toggleKillSwitch(bool enable);
 

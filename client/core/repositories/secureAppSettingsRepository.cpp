@@ -341,6 +341,28 @@ void SecureAppSettingsRepository::setNewsNotifications(bool enabled)
     setValue("Conf/newsNotifications", enabled);
 }
 
+bool SecureAppSettingsRepository::isOledThemeEnabled() const
+{
+    return value("Conf/oledThemeEnabled", false).toBool();
+}
+
+void SecureAppSettingsRepository::setOledThemeEnabled(bool enabled)
+{
+    setValue("Conf/oledThemeEnabled", enabled);
+}
+
+int SecureAppSettingsRepository::accentColorHue() const
+{
+    // Default of 30 degrees reproduces the app's original accent color
+    // (#FBB26A) exactly, so a fresh install/profile looks unchanged.
+    return value("Conf/accentColorHue", 30).toInt();
+}
+
+void SecureAppSettingsRepository::setAccentColorHue(int hue)
+{
+    setValue("Conf/accentColorHue", hue);
+}
+
 bool SecureAppSettingsRepository::isSaveLogs() const
 {
     return value("Conf/saveLogs", false).toBool();

@@ -36,6 +36,7 @@ public:
     static QString bytesPerSecToText(quint64 bytes);
 
     ErrorCode lastError() const;
+    QString lastErrorDetail() const;
     Vpn::ConnectionState connectionState() const;
 
     QSharedPointer<VpnProtocol> vpnProtocol() const;

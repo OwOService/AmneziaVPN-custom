@@ -54,12 +54,14 @@ Window  {
     }
 
     visible: !GC.isDesktop()
-    width: GC.screenWidth
-    height: GC.screenHeight
-    minimumWidth: GC.isDesktop() ? 360 : 0
-    minimumHeight: GC.isDesktop() ? 640 : 0
-    maximumWidth: 600
-    maximumHeight: 800
+    width: GC.isDesktop() ? GC.desktopDefaultWidth : GC.screenWidth
+    height: GC.isDesktop() ? GC.desktopDefaultHeight : GC.screenHeight
+    minimumWidth: GC.isDesktop() ? GC.desktopMinWidth : 0
+    minimumHeight: GC.isDesktop() ? GC.desktopMinHeight : 0
+    // Desktop windows can now be resized up to the available screen space instead of
+    // being capped at the old mobile-derived 600x800 ceiling. Mobile keeps the old cap.
+    maximumWidth: GC.isDesktop() ? Screen.desktopAvailableWidth : 600
+    maximumHeight: GC.isDesktop() ? Screen.desktopAvailableHeight : 800
 
     color: AmneziaStyle.color.midnightBlack
 

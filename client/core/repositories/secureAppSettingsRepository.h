@@ -73,6 +73,10 @@ public:
     void setScreenshotsEnabled(bool enabled);
     bool isNewsNotifications() const;
     void setNewsNotifications(bool enabled);
+    bool isOledThemeEnabled() const;
+    void setOledThemeEnabled(bool enabled);
+    int accentColorHue() const;
+    void setAccentColorHue(int hue);
     bool isSaveLogs() const;
     void setSaveLogs(bool enabled);
     QDateTime getLogEnableDate() const;

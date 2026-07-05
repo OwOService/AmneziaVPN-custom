@@ -46,6 +46,7 @@ signals:
     void connectionStateChanged();
 
     void connectionErrorOccurred(ErrorCode errorCode);
+    void connectionErrorOccurredWithDetail(ErrorCode errorCode, const QString &detail);
 
     void connectButtonClicked();
     void preparingConfig();

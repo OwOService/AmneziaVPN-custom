@@ -2,6 +2,7 @@
     <qresource prefix="/ui/qml">
         <file>Components/AdLabel.qml</file>
         <file>Components/ConnectButton.qml</file>
+        <file>Components/DesktopSidebar.qml</file>
         <file>Components/ConnectionTypeSelectionDrawer.qml</file>
         <file>Components/GamepadLoader.qml</file>
         <file>Components/HomeContainersListView.qml</file>
@@ -48,9 +49,11 @@
         <file>Controls2/ProgressBarType.qml</file>
         <file>Controls2/ScrollBarType.qml</file>
         <file>Controls2/StackViewType.qml</file>
+        <file>Controls2/HueSliderType.qml</file>
         <file>Controls2/SwitcherType.qml</file>
         <file>Controls2/TabButtonType.qml</file>
         <file>Controls2/TabImageButtonType.qml</file>
+        <file>Controls2/SidebarNavButtonType.qml</file>
         <file>Controls2/TextAreaType.qml</file>
         <file>Controls2/TextAreaWithFooterType.qml</file>
         <file>Controls2/TextFieldWithHeaderType.qml</file>
@@ -99,6 +102,7 @@
         <file>Pages2/PageSettingsApiAvailableCountries.qml</file>
         <file>Pages2/PageSettingsApiServerInfo.qml</file>
         <file>Pages2/PageSettingsApplication.qml</file>
+        <file>Pages2/PageSettingsPersonalization.qml</file>
         <file>Pages2/PageSettingsAppSplitTunneling.qml</file>
         <file>Pages2/PageSettingsBackup.qml</file>
         <file>Pages2/PageSettingsConnection.qml</file>

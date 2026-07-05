@@ -95,6 +95,12 @@ void CoreSignalHandlers::initErrorMessagesHandler()
         m_coreController->m_connectionController->setConnectionState(Vpn::ConnectionState::Disconnected);
     });
 
+    connect(m_coreController->m_connectionUiController, &ConnectionUiController::connectionErrorOccurredWithDetail, this,
+            [this](ErrorCode /*errorCode*/, const QString &detail) {
+                emit m_coreController->m_pageController->showErrorMessage(detail);
+                m_coreController->m_connectionController->setConnectionState(Vpn::ConnectionState::Disconnected);
+            });
+
     connect(m_coreController->m_subscriptionUiController, &SubscriptionUiController::errorOccurred, m_coreController->m_pageController,
             qOverload<ErrorCode>(&PageController::showErrorMessage));
 

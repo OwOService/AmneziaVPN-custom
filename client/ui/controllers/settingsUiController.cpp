@@ -240,6 +240,26 @@ void SettingsUiController::toggleNewsNotificationsEnabled(bool enable)
     m_settingsController->toggleNewsNotificationsEnabled(enable);
 }
 
+bool SettingsUiController::isOledThemeEnabled()
+{
+    return m_settingsController->isOledThemeEnabled();
+}
+
+void SettingsUiController::toggleOledThemeEnabled(bool enable)
+{
+    m_settingsController->toggleOledThemeEnabled(enable);
+}
+
+int SettingsUiController::accentColorHue()
+{
+    return m_settingsController->accentColorHue();
+}
+
+void SettingsUiController::setAccentColorHue(int hue)
+{
+    m_settingsController->setAccentColorHue(hue);
+}
+
 bool SettingsUiController::isCameraPresent()
 {
 #if defined Q_OS_IOS

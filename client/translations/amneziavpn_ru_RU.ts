@@ -1614,9 +1614,14 @@ Thank you for staying with us!</source>
         <translation>Соединение</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettings.qml" line="139"/>
+        <location filename="../ui/qml/Pages2/PageSettings.qml" line="140"/>
         <source>Application</source>
         <translation>Приложение</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettings.qml" line="153"/>
+        <source>Personalization</source>
+        <translation>Персонализация</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettings.qml" line="150"/>
@@ -2279,6 +2284,62 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="257"/>
         <source>Executable files (*.*)</source>
         <translation>Исполняемые файлы (*.*)</translation>
+    </message>
+</context>
+<context>
+    <name>PageSettingsPersonalization</name>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="32"/>
+        <source>Personalization</source>
+        <translation>Персонализация</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="33"/>
+        <source>Customize the look of the app.</source>
+        <translation>Настройте внешний вид приложения.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="44"/>
+        <source>OLED dark theme</source>
+        <translation>Тёмная OLED-тема</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="45"/>
+        <source>Use pure black backgrounds to save battery and avoid glow on OLED screens.</source>
+        <translation>Использовать чистый чёрный фон для экономии заряда и защиты от засветов на OLED-экранах.</translation>
+    </message>
+</context>
+<context>
+    <name>DesktopSidebar</name>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="50"/>
+        <source>Current server: %1</source>
+        <translation>Текущий сервер: %1</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="67"/>
+        <source>Home</source>
+        <translation>Главная</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="77"/>
+        <source>Share</source>
+        <translation>Поделиться</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="86"/>
+        <source>Settings</source>
+        <translation>Настройки</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="96"/>
+        <source>Add server</source>
+        <translation>Добавить сервер</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/DesktopSidebar.qml" line="109"/>
+        <source>Close application</source>
+        <translation>Закрыть приложение</translation>
     </message>
 </context>
 <context>

@@ -250,6 +250,26 @@ void SettingsController::toggleNewsNotificationsEnabled(bool enable)
     m_appSettingsRepository->setNewsNotifications(enable);
 }
 
+bool SettingsController::isOledThemeEnabled() const
+{
+    return m_appSettingsRepository->isOledThemeEnabled();
+}
+
+void SettingsController::toggleOledThemeEnabled(bool enable)
+{
+    m_appSettingsRepository->setOledThemeEnabled(enable);
+}
+
+int SettingsController::accentColorHue() const
+{
+    return m_appSettingsRepository->accentColorHue();
+}
+
+void SettingsController::setAccentColorHue(int hue)
+{
+    m_appSettingsRepository->setAccentColorHue(hue);
+}
+
 bool SettingsController::isKillSwitchEnabled() const
 {
     return m_appSettingsRepository->isKillSwitchEnabled();

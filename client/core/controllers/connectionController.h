@@ -30,6 +30,8 @@ public:
                                  QObject* parent = nullptr);
     ~ConnectionController() = default;
 
+    QString lastErrorDetail() const;
+    void cacheLastErrorDetail();
     ErrorCode prepareConnection(const QString &serverId,
                                QJsonObject& vpnConfiguration,
                                DockerContainer& container);
@@ -80,6 +82,7 @@ private:
     SecureServersRepository* m_serversRepository;
     SecureAppSettingsRepository* m_appSettingsRepository;
     VpnConnection* m_vpnConnection;
+    QString m_lastErrorDetail;
 };
 
 #endif

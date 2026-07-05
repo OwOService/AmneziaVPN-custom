@@ -18,6 +18,32 @@ PageType {
     property bool isControlsDisabled: false
     property bool isTabBarDisabled: false
 
+    // Desktop sidebar replaces the mobile bottom tab bar once the window is wide enough.
+    // tabBarLogicVisible mirrors what used to be assigned straight to tabBar.visible
+    // (wizard/start-page cases hide it regardless of layout); sidebarVisible additionally
+    // hides the bar whenever the sidebar is taking over navigation.
+    readonly property bool sidebarVisible: GC.isDesktop() && root.width >= GC.desktopSidebarBreakpoint
+    property bool tabBarLogicVisible: true
+
+    function navigateToTab(index) {
+        switch (index) {
+        case 0:
+            tabBarStackView.goToTabBarPage(PageEnum.PageHome)
+            ServersUiController.setProcessedServerId(ServersUiController.defaultServerId)
+            break
+        case 1:
+            tabBarStackView.goToTabBarPage(PageEnum.PageShare)
+            break
+        case 2:
+            tabBarStackView.goToTabBarPage(PageEnum.PageSettings)
+            break
+        case 3:
+            tabBarStackView.goToTabBarPage(PageEnum.PageSetupWizardConfigSource)
+            break
+        }
+        tabBar.currentIndex = index
+    }
+
     Connections {
         objectName: "pageControllerConnection"
 
@@ -25,10 +51,10 @@ PageType {
 
         function onGoToPageHome() {
             if (PageController.isStartPageVisible()) {
-                tabBar.visible = false
+                root.tabBarLogicVisible = false
                 tabBarStackView.goToTabBarPage(PageEnum.PageSetupWizardStart)
             } else {
-                tabBar.visible = true
+                root.tabBarLogicVisible = true
                 tabBar.setCurrentIndex(0)
                 tabBarStackView.goToTabBarPage(PageEnum.PageHome)
             }
@@ -262,13 +288,29 @@ PageType {
         }
     }
 
+    DesktopSidebar {
+        id: sidebar
+        objectName: "desktopSidebar"
+
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+
+        visible: root.sidebarVisible && root.tabBarLogicVisible
+        currentIndex: tabBar.currentIndex
+
+        onNavigateRequested: function(index) {
+            root.navigateToTab(index)
+        }
+    }
+
     StackViewType {
         id: tabBarStackView
         objectName: "tabBarStackView"
 
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.left: parent.left
+        anchors.left: (sidebar.visible) ? sidebar.right : parent.left
         anchors.bottom: tabBar.top
 
         enabled: !root.isControlsDisabled
@@ -282,10 +324,10 @@ PageType {
         Component.onCompleted: {
             var pagePath
             if (PageController.isStartPageVisible()) {
-                tabBar.visible = false
+                root.tabBarLogicVisible = false
                 pagePath = PageController.getPagePath(PageEnum.PageSetupWizardStart)
             } else {
-                tabBar.visible = true
+                root.tabBarLogicVisible = true
                 pagePath = PageController.getPagePath(PageEnum.PageHome)
                 ServersUiController.setProcessedServerId(ServersUiController.defaultServerId)
             }
@@ -322,6 +364,8 @@ PageType {
 
         // Also adjust TabBar position when keyboard appears (Android 14+ workaround)
         anchors.bottomMargin: PageController.imeHeight
+
+        visible: root.tabBarLogicVisible && !root.sidebarVisible
 
         topPadding: 8
         bottomPadding: 8 + PageController.safeAreaBottomMargin

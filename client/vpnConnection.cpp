@@ -268,6 +268,11 @@ void VpnConnection::disconnectSlots()
     }
 }
 
+QString VpnConnection::lastErrorDetail() const
+{
+    return m_vpnProtocol ? m_vpnProtocol->lastErrorDetail() : QString();
+}
+
 ErrorCode VpnConnection::lastError() const
 {
 #ifdef Q_OS_ANDROID

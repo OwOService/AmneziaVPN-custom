@@ -19,6 +19,7 @@ VpnProtocol::VpnProtocol(const QJsonObject &configuration, QObject *parent)
       m_connectionState(Vpn::ConnectionState::Unknown),
       m_rawConfig(configuration),
       m_timeoutTimer(new QTimer(this)),
+      m_lastError(ErrorCode::NoError),
       m_receivedBytes(0),
       m_sentBytes(0)
 {
@@ -45,6 +46,9 @@ void VpnProtocol::onTimeout()
     qDebug() << "Timeout";
 
     emit timeoutTimerEvent();
+    setLastErrorDetail(tr("Connection timed out: server unreachable or no internet"));
+    emit protocolError(ErrorCode::InternalError);
+    setLastError(ErrorCode::InternalError);
     stop();
 }
 
@@ -159,4 +163,14 @@ bool VpnProtocol::isConnected() const
 bool VpnProtocol::isDisconnected() const
 {
     return m_connectionState == Vpn::ConnectionState::Disconnected;
+}
+
+void VpnProtocol::setLastErrorDetail(const QString &detail)
+{
+    m_lastErrorDetail = detail;
+}
+
+QString VpnProtocol::lastErrorDetail() const
+{
+    return m_lastErrorDetail;
 }

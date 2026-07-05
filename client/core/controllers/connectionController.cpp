@@ -18,6 +18,17 @@
 using namespace amnezia;
 using namespace ProtocolUtils;
 
+QString ConnectionController::lastErrorDetail() const
+{
+    return m_lastErrorDetail;
+}
+
+void ConnectionController::cacheLastErrorDetail()
+{
+    if (m_vpnConnection)
+        m_lastErrorDetail = m_vpnConnection->lastErrorDetail();
+}
+
 ConnectionController::ConnectionController(SecureServersRepository* serversRepository,
                                          SecureAppSettingsRepository* appSettingsRepository,
                                          VpnConnection* vpnConnection,
@@ -28,6 +39,9 @@ ConnectionController::ConnectionController(SecureServersRepository* serversRepos
       m_vpnConnection(vpnConnection)
 {
     connect(m_vpnConnection, &VpnConnection::connectionStateChanged, this, &ConnectionController::connectionStateChanged);
+    connect(m_vpnConnection, &VpnConnection::vpnProtocolError, this, [this](amnezia::ErrorCode) {
+        cacheLastErrorDetail();
+    });
     connect(this, &ConnectionController::openConnectionRequested, m_vpnConnection, &VpnConnection::connectToVpn, Qt::QueuedConnection);
     connect(this, &ConnectionController::closeConnectionRequested, m_vpnConnection, &VpnConnection::disconnectFromVpn, Qt::QueuedConnection);
     connect(this, &ConnectionController::setConnectionStateRequested, m_vpnConnection, &VpnConnection::setConnectionState, Qt::QueuedConnection);

@@ -65,6 +65,8 @@ public:
     ErrorCode lastError() const;
     QString textConnectionState() const;
     void setLastError(ErrorCode lastError);
+    void setLastErrorDetail(const QString &detail);
+    QString lastErrorDetail() const;
 
     QString routeGateway() const;
     QString vpnGateway() const;
@@ -100,6 +102,7 @@ protected:
 private:
     QTimer* m_timeoutTimer;
     ErrorCode m_lastError;
+    QString m_lastErrorDetail;
     quint64 m_receivedBytes;
     quint64 m_sentBytes;
 };

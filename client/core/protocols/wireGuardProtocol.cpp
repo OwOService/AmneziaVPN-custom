@@ -10,11 +10,12 @@
 #include "mozilla/localsocketcontroller.h"
 
 WireguardProtocol::WireguardProtocol(const QJsonObject &configuration, QObject *parent)
-    : VpnProtocol(configuration, parent)
+: VpnProtocol(configuration, parent)
 {
     m_impl.reset(new LocalSocketController());
     connect(m_impl.get(), &ControllerImpl::connected, this,
             [this](const QString &pubkey, const QDateTime &connectionTimestamp) {
+                stopTimeoutTimer();
                 setConnectionState(Vpn::ConnectionState::Connected);
             });
     connect(m_impl.get(), &ControllerImpl::statusUpdated, this,
@@ -34,12 +35,21 @@ WireguardProtocol::WireguardProtocol(const QJsonObject &configuration, QObject *
                 if ((!m_vpnGateway.isEmpty() && m_vpnGateway != previousGateway) ||
                     (!m_vpnLocalAddress.isEmpty() && m_vpnLocalAddress != previousLocal)) {
                     emit tunnelAddressesUpdated(m_vpnGateway, m_vpnLocalAddress);
-                }
-            });
+                    }
+                   });
 
-    connect(m_impl.get(), &ControllerImpl::disconnected, this,
-            [this]() { setConnectionState(Vpn::ConnectionState::Disconnected); });
-    m_impl->initialize(nullptr, nullptr);
+                connect(m_impl.get(), &ControllerImpl::disconnected, this,
+                        [this]() {
+                            stopTimeoutTimer();
+                            if (m_isStopping) {
+                                setConnectionState(Vpn::ConnectionState::Disconnected);
+                            } else {
+                                setLastErrorDetail(tr("Connection lost unexpectedly: no network or daemon failure"));
+                                emit protocolError(ErrorCode::InternalError);
+                                setLastError(ErrorCode::InternalError);
+                            }
+                        });
+                m_impl->initialize(nullptr, nullptr);
 }
 
 WireguardProtocol::~WireguardProtocol()
@@ -50,18 +60,22 @@ WireguardProtocol::~WireguardProtocol()
 
 void WireguardProtocol::stop()
 {
+    m_isStopping = true;
+    stopTimeoutTimer();
     stopMzImpl();
     return;
 }
 
 ErrorCode WireguardProtocol::startMzImpl()
 {
+    m_isStopping = false;
     QString protocolName = m_rawConfig.value("protocol").toString();
     QJsonObject vpnConfigData = m_rawConfig.value(protocolName + "_config_data").toObject();
     vpnConfigData[configKey::hostName] = NetworkUtilities::getIPAddress(vpnConfigData.value(configKey::hostName).toString());
     m_rawConfig.insert(protocolName + "_config_data", vpnConfigData);
     m_rawConfig[configKey::hostName] = NetworkUtilities::getIPAddress(m_rawConfig[configKey::hostName].toString());
 
+    startTimeoutTimer();
     m_impl->activate(m_rawConfig);
     return ErrorCode::NoError;
 }

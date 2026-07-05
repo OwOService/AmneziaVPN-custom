@@ -67,6 +67,7 @@ XrayProtocol::~XrayProtocol()
 ErrorCode XrayProtocol::start()
 {
     qDebug() << "XrayProtocol::start()";
+    startTimeoutTimer();
 
     // Inject SOCKS5 auth into the inbound before starting xray.
     // Re-uses existing credentials if the config already has them (e.g. imported config).
@@ -109,16 +110,18 @@ ErrorCode XrayProtocol::start()
                 auto xrayStart = iface->xrayStart(xrayConfigStr);
                 if (!xrayStart.waitForFinished() || !xrayStart.returnValue()) {
                     qCritical() << "Failed to start xray";
+                    stopTimeoutTimer();
                     return ErrorCode::XrayExecutableCrashed;
                 }
                 return startTun2Socks();
             },
-            []() { return ErrorCode::AmneziaServiceConnectionFailed; });
+            [this]() { stopTimeoutTimer(); return ErrorCode::AmneziaServiceConnectionFailed; });
 }
 
 void XrayProtocol::stop()
 {
     qDebug() << "XrayProtocol::stop()";
+    stopTimeoutTimer();
 
     IpcClient::withInterface([](QSharedPointer<IpcInterfaceReplica> iface) {
         auto disableKillSwitch = iface->disableKillSwitch();
@@ -193,6 +196,7 @@ ErrorCode XrayProtocol::startTun2Socks()
 
                 if (line.contains("[STACK] tun://") && line.contains("<-> socks5://")) {
                     disconnect(m_tun2socksProcess.data(), &IpcProcessInterfaceReplica::readyReadStandardOutput, this, nullptr);
+                    stopTimeoutTimer();
 
                     if (ErrorCode res = setupRouting(); res != ErrorCode::NoError) {
                         stop();
