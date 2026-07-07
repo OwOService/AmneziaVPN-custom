@@ -191,11 +191,37 @@ PageType {
         anchors.fill: parent
 
         collapsedStateContent: Item {
+            id: collapsedStateContentItem
             objectName: "ProtocolDrawerCollapsedContent"
 
-            implicitHeight: Qt.platform.os !== "ios" ? root.height * 0.9 : screen.height * 0.77
-            Component.onCompleted: {
-                drawer.expandedHeight = implicitHeight
+            // On desktop the drawer's expanded height used to be a fixed 90% of the
+            // (potentially very tall, resizable) window height, regardless of how
+            // many servers were in the list. That left a large empty gap below the
+            // server list on tall/desktop windows. On desktop we now size the drawer
+            // to its actual content (header + servers list), capped at the same 90%
+            // ceiling as before so it still can't grow larger than the window.
+            // Mobile/iOS behavior is untouched.
+            implicitHeight: {
+                if (GC.isDesktop()) {
+                    var contentHeight = collapsed.implicitHeight + serversMenuHeader.implicitHeight
+                                         + serversMenuContent.contentHeight + 32
+                    return Math.min(contentHeight, root.height * 0.9)
+                }
+                return Qt.platform.os !== "ios" ? root.height * 0.9 : screen.height * 0.77
+            }
+
+            // NOTE: this must be a live Binding declared *inside* collapsedStateContent,
+            // not a `drawer.expandedHeight: collapsedStateContentItem.implicitHeight` line
+            // on the DrawerType2 object itself. collapsedStateContent is a `property
+            // Component`, so ids declared inside it (like collapsedStateContentItem)
+            // are not visible from outside — only the reverse direction works (outer
+            // ids like `drawer` are visible from inside the Component). A plain
+            // Component.onCompleted one-shot assignment would resolve correctly but
+            // wouldn't react to later changes (window resize, servers added/removed).
+            Binding {
+                target: drawer
+                property: "expandedHeight"
+                value: collapsedStateContentItem.implicitHeight
             }
 
             ColumnLayout {
@@ -211,6 +237,11 @@ PageType {
                 }
 
                 DividerType {
+                    // This is a mobile bottom-sheet drag-handle affordance; on desktop
+                    // dragging isn't the primary interaction and the space is more
+                    // valuable for showing servers, so we skip it entirely there.
+                    visible: !GC.isDesktop()
+
                     Layout.topMargin: 10
                     Layout.fillWidth: false
                     Layout.preferredWidth: 20
@@ -221,7 +252,7 @@ PageType {
                 RowLayout {
                     objectName: "rowLayout"
 
-                    Layout.topMargin: 14
+                    Layout.topMargin: GC.isDesktop() ? 20 : 14
                     Layout.leftMargin: 24
                     Layout.rightMargin: 24
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -310,8 +341,16 @@ PageType {
                 RowLayout {
                     objectName: "rowLayoutLabel"
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    Layout.topMargin: 8
-                    Layout.bottomMargin: drawer.isCollapsedStateActive ? 44 : ServersUiController.isDefaultServerFromApi ? 61 : 16
+                    Layout.topMargin: GC.isDesktop() ? 4 : 8
+                    Layout.bottomMargin: {
+                        if (drawer.isCollapsedStateActive) {
+                            return 44
+                        }
+                        if (GC.isDesktop()) {
+                            return ServersUiController.isDefaultServerFromApi ? 16 : 0
+                        }
+                        return ServersUiController.isDefaultServerFromApi ? 61 : 16
+                    }
                     spacing: 0
 
                     BasicButtonType {
@@ -449,7 +488,7 @@ PageType {
 
                 Header2Type {
                     Layout.fillWidth: true
-                    Layout.topMargin: 48
+                    Layout.topMargin: GC.isDesktop() ? 20 : 48
                     Layout.leftMargin: 16
                     Layout.rightMargin: 16
 
