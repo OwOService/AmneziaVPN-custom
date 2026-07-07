@@ -86,6 +86,20 @@ void ServersUiController::setDefaultContainerAtIndex(int index, int containerInd
     }
 }
 
+void ServersUiController::moveServerAtIndex(int fromIndex, int toIndex)
+{
+    if (fromIndex == toIndex) {
+        return;
+    }
+    if (fromIndex < 0 || fromIndex >= m_orderedServerDescriptions.size()
+        || toIndex < 0 || toIndex >= m_orderedServerDescriptions.size()) {
+        return;
+    }
+
+    m_serversController->moveServer(fromIndex, toIndex);
+    updateModel();
+}
+
 void ServersUiController::editServerName(const QString &serverId, const QString &name)
 {
     if (serverId.isEmpty()) {

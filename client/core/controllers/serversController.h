@@ -39,6 +39,7 @@ public:
     bool renameServer(const QString &serverId, const QString &name);
     void removeServer(const QString &serverId);
     void setDefaultServer(const QString &serverId);
+    void moveServer(int fromIndex, int toIndex);
 
     // Container management
     void setDefaultContainer(const QString &serverId, DockerContainer container);

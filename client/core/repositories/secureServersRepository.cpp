@@ -193,6 +193,20 @@ void SecureServersRepository::clearServers()
     syncToStorage();
 }
 
+void SecureServersRepository::moveServer(int fromIndex, int toIndex)
+{
+    if (fromIndex < 0 || fromIndex >= m_orderedServerIds.size()
+        || toIndex < 0 || toIndex >= m_orderedServerIds.size()
+        || fromIndex == toIndex) {
+        return;
+    }
+
+    m_orderedServerIds.move(fromIndex, toIndex);
+
+    syncToStorage();
+    emit serverOrderChanged();
+}
+
 QString SecureServersRepository::nextAvailableServerName() const
 {
     QSet<QString> usedNames;

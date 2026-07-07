@@ -58,6 +58,8 @@ public slots:
     void setDefaultContainer(const QString &serverId, int containerIndex);
     void setDefaultContainerAtIndex(int index, int containerIndex);
 
+    void moveServerAtIndex(int fromIndex, int toIndex);
+
     void toggleAmneziaDns(bool enabled);
     void onDefaultServerChanged(const QString &defaultServerId);
     

@@ -48,6 +48,8 @@ public:
 
     void clearServers();
 
+    void moveServer(int fromIndex, int toIndex);
+
     QString nextAvailableServerName() const;
 
     void invalidateCache();
@@ -57,6 +59,7 @@ signals:
     void serverEdited(const QString &serverId);
     void serverRemoved(const QString &serverId, int removedIndex);
     void defaultServerChanged(const QString &defaultServerId);
+    void serverOrderChanged();
 
 private:
     void loadFromStorage();

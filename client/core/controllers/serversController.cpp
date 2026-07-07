@@ -93,6 +93,11 @@ void ServersController::setDefaultServer(const QString &serverId)
     m_serversRepository->setDefaultServer(serverId);
 }
 
+void ServersController::moveServer(int fromIndex, int toIndex)
+{
+    m_serversRepository->moveServer(fromIndex, toIndex);
+}
+
 void ServersController::setDefaultContainer(const QString &serverId, DockerContainer container)
 {
     const serverConfigUtils::ConfigType kind = m_serversRepository->serverKind(serverId);
