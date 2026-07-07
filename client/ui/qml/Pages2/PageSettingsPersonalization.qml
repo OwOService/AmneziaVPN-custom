@@ -63,6 +63,28 @@ PageType {
             Layout.rightMargin: 16
         }
 
+        AccentColorPresetsType {
+            id: accentColorPresets
+
+            Layout.fillWidth: true
+            Layout.topMargin: 16
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+
+            text: qsTr("Accent color")
+            descriptionText: qsTr("Pick a preset, or fine-tune with the slider below.")
+
+            value: SettingsController.accentColorHue()
+
+            onMoved: {
+                SettingsController.setAccentColorHue(value)
+                AmneziaStyle.accentColorHue = value
+                // Keep the slider handle in sync so it reflects the preset
+                // that was just tapped, instead of looking stale.
+                accentHueSlider.value = value
+            }
+        }
+
         HueSliderType {
             id: accentHueSlider
 
@@ -71,8 +93,8 @@ PageType {
             Layout.leftMargin: 16
             Layout.rightMargin: 16
 
-            text: qsTr("Accent color")
-            descriptionText: qsTr("Drag to change the app's accent color.")
+            text: qsTr("Fine-tune")
+            descriptionText: qsTr("Drag to pick any color the presets above don't cover.")
 
             value: SettingsController.accentColorHue()
 
@@ -80,6 +102,10 @@ PageType {
                 SettingsController.setAccentColorHue(value)
                 // Same immediate, app-wide re-color pattern as the OLED switcher above.
                 AmneziaStyle.accentColorHue = value
+                // Keep the preset row's selection ring in sync — if the slider
+                // lands exactly on a preset hue, that swatch highlights;
+                // otherwise none of them do, which is correct too.
+                accentColorPresets.value = value
             }
         }
 

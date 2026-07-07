@@ -50,6 +50,7 @@
         <file>Controls2/ScrollBarType.qml</file>
         <file>Controls2/StackViewType.qml</file>
         <file>Controls2/HueSliderType.qml</file>
+        <file>Controls2/AccentColorPresetsType.qml</file>
         <file>Controls2/SwitcherType.qml</file>
         <file>Controls2/TabButtonType.qml</file>
         <file>Controls2/TabImageButtonType.qml</file>
