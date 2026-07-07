@@ -1,0 +1,398 @@
+[
+  {
+    "hostname": "mobile.yandexadexchange.net",
+    "ip": ""
+  },
+  {
+    "hostname": "yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "startup.mobile.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "report.appmetrica.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ads.x5media.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "x5m.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ip4.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ts.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "proxy.mob.maps.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "observability.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "id.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kaf-gate.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "5d.5ka.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gw-tsx.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tsx.x5static.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ecom-cdn.x5media.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "perekrestok-mobile.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sentry.x5.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.inappstory.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "x5m-cdn.x5static.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.inappstory.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "adler.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "arenda.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bo.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdp.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "chel.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ekb.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "engels.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "files.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fp.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "himki.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hm.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "im.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kazan.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kolpino.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "link.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lipetsk.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mo.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nn.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nt.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ny2026-bot.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "o-api.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "o-gate.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "opt.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "perchatka.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "push.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa1.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa2.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa3.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa4.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa5.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa6.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qa7.test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rabota.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ryazan.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "samara.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "school.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "serpuhov.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "srm.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-bo.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-my.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-perchatka.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tver.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vesna.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vn.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vyborg.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zoo.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn-img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnv-img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "czogpa.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mastercard.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "services.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "shop.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "spb.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static00.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static01.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static02.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static03.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static04.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static05.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static06.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static07.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static08.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static09.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-cdn-img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-cdnv-img.perekrestok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "voip.perekrestok.ru",
+    "ip": ""
+  }
+]

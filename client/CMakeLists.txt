@@ -68,6 +68,7 @@ qt6_add_resources(QRC ${QRC}
     ${CMAKE_CURRENT_LIST_DIR}/client_scripts/clientScripts.qrc
     ${CMAKE_CURRENT_LIST_DIR}/ui/qml/qml.qrc
     ${CMAKE_CURRENT_LIST_DIR}/server_scripts/serverScripts.qrc
+    ${CMAKE_CURRENT_LIST_DIR}/resources/splitTunnelingPresets/splitTunnelingPresets.qrc
 )
 
 # -- i18n begin

@@ -1,0 +1,1438 @@
+[
+  {
+    "hostname": "2life.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "500.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "accessome.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "adfs.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "agro.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "alpha.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "anton.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-merch.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.bdkm-support-test.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.bdkm-test.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.bdkm.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.blago.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.datalab.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.qa.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.zabota.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app-demo.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.qa.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apteka-highload.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apteka-prod.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apteka-stage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apteka-stage2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apteka.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "argument.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "armhde.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "arsint01.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "arsint02.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "arsystem.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "assets.zakupki.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "auth-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "autodiscover.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "av1.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "av2.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "av3.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "av4.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b-api-gateway.uat.ecom.md.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b-portal.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b.middle-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b2b.test-middle-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "backend-demo.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "backend-srv-demo.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "banan.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bezgranic.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "binding-api-demo.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "binding-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "binding-api.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "biometriatst.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "blago.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "blogger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bonus.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "booking.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "buzova.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "byod.tstore.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "byodagent.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bzdsit.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "c2c.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ca.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ccmdp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ccmmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api-admin.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api-demo.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api-test.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checklist-api.qa.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "clf.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "clickstream-omni.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "clm.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "collab-edge.uc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cosmetic.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "courier-highload.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "courier-stage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "courier-stage2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "courier.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "couriers.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cptspocsp1.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cptspocsp2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cpub.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "crc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "credit.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "creditcard.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "crm.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "crossword.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cts1.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "datalab.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "delivery-service.uat.ecom.md.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "demo.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "demo.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dialin.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "digital.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmp-dcx.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmp-rd.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmp20.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmpsvr01.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmpsvrdc01.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "docs.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dostavka-highload.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dostavka-stage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dostavka-stage2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dostavka.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "drive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dsp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dwpbmc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ecom-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eda.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eggs-game.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "employee-app.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "enterpriseenrollment.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "enterpriseenrollment.mobility.darty.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "enterpriseenrollment.obs.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "enterpriseenrollment.ome.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eportal.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "errand-api-demo.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "errand-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "errand-api.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ets.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "event-stream-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eway.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eway1.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eway2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ews.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "exchange01.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "express-highload.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "express-stage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "express-stage2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "failover.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fairy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "firmware.tstore.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fls.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fmail.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fmail1.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fmail2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fotoobmen.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fr.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fraudanke.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fresh.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fstorage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "geo.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gitlab.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "grafana.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gsm-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "guidance.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "helpdesk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "holy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "house.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hr.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hrtest.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "id.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ikey.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "im.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "image.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "image.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "image.qa.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "img.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "imgproxy-configurator.prod.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "imgproxy.dev.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "imgproxy.uat.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "jitsi-meet.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "job.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "join.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "karta.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kibana.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kids.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kmail01.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kmail02.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kmail03.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kmaild.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kontragent.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legal.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lkka-urv.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "loans.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lottery.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "loyalty.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lyncdiscover.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "m.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mads-serve.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mads-track.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "magniteam.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "magnum-mobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "magnum.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.apteka-stage.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mailback.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mainday.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "marathon.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "market.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "master.dte.azure.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "master.prod.azure.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "media.talk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "media.talktst.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "meet.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "merch.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "middle-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile-scout-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile-scout-pilot.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile-scout-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobiscan.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "monstriksy-2026.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "moy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mrkt.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mrs.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mrs2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mscout.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mtbmc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mtinthelix.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "my.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mysite.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new-krakend-mdrive.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new-krakend-mdrive.internal.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new-krakend-mdrive.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new-krakend-mdrive.qa.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new.moy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "news.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "newyear.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nginx-s3-auth-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nginx-s3-image-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nginx-s3-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nmagnit.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "notification-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "notification-demo.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "notification-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "notification.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "notification1.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nt.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ny.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nysong.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "obs.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "offers.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "omni.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "oos.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "oossp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ops-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "opt.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "otrs.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "owa.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pack.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pampers.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "park.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "partner.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "podarki.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "portal-dev.platform.md.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "portal.platform.md.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "post.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "premium.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod-lkka.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod-time-mobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo-games.prod.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promokod.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pt.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pulsem.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rabota.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rcm.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "realty.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "reklama.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "remote-crafttalk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rmr-rating-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "safari.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sbp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "scdriveoos.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "schedule-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sd.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sdclassic.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sdint01.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sdreport.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "secret.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "security-api-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "selta.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sentry-mobile.prod.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sentry.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "service.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "servicedesk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbaccess2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbdirpool2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfboos2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbwapp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbwas.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbweb.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbwebpool.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sfbwebpool2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "share.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sip.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sipexternal.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sitelinker.prod.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "skillaz.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "skype.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sm.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "smartitbmc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "smartrepbmc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "smtp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "solutions.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sprut.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "srm.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "srm2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "srv-demo.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "srv-rcm.mmobile.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "staff-acquisition.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stirka.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "storage-service-demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "storage-service-prod.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "storage-service.demo.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "survey.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "talk.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "talktst.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "target.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "teams.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-deploy.mdrive.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-middle-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tnd.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tori.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "track.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ts.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tst.dmp.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tvoy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "urv.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "v00bmcarsint001.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "v00bmcarsint002.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vacancy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "video.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videoproxy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videostream.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "virtual-assistant.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "web-gateway.middle-api.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "webbridge.uc.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.dev.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.dmp20.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.employee-app.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.prod.ya.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.tvoy.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.uat.platform.md.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "workspace.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "workspace2.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "xlnk.messenger.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "yarmarka.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zabota.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zakupki.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zaryad.magnit.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zvezdy-2026.magnit.ru",
+    "ip": ""
+  }
+]

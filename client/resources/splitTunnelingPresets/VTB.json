@@ -1,0 +1,46 @@
+[
+  {
+    "hostname": "vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "chat3.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "s.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso-app4.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso-app5.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lk.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "m.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "online.vtb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static.vtb.ru",
+    "ip": ""
+  }
+]

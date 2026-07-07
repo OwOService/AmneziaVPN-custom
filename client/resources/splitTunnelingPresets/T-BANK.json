@@ -1,0 +1,42 @@
+[
+  {
+    "hostname": "cdn.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hrc.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cobrowsing.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "le.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "id.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "business.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "invest.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tbank.ru",
+    "ip": ""
+  }
+]

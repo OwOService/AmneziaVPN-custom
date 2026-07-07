@@ -1,0 +1,1118 @@
+[
+  {
+    "hostname": "sdk-api.apptracer.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pre-bid.programmatica.com",
+    "ip": ""
+  },
+  {
+    "hostname": "telemetry.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "unban.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "proxy.mob.maps.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "id.sber.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "unleash-edge.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.vk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.expf.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ws.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.mindbox.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "img.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "sp-main.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "id.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "reviews.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "catalog-cdn.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "catalog.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "email.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "mp.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "mpzooru.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "static.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "static1.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "static2.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "video.detmir.st",
+    "ip": ""
+  },
+  {
+    "hostname": "2023.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "2024.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "2025.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "75.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "about.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.go.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.go.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "analytic-parser.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-v3.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.go.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.go.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.mobile.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.staffapp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "autodiscover.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "av.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "b.hq.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "badabu.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "barbie.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bebivita.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bf.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "blackfriday.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "blog.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bod.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bonus.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "brenddiscount.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "corp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cyberbaby.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cyberdays.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cybermonday.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cyberthursday.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cyberwednesday.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dashboard.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dc1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dema-bonus.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "design.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dialin.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dis02.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "disneybaby.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dolyame.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "download.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dtln.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eco-nutrilon.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eg.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "elk-rum.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "email.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "feedback.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "files.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fisher-price.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fisherprice.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "frozen2.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fs.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ftp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g.hq.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g1.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g2.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g3.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "g4.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gerber.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gift.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "goon.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "gotovo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hasbro.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hotwheels.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "huggies.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hybris.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "img.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "info.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ir.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "jira.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "job.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "jobs.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kabrita.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "karta.bf.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "karta.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kassa.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kb.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kids-drawing.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kinder-promo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kolyaska.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "komanda.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kz.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lego.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "like.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lps.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lyncdiscover.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "malyshariki.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "malyutka.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "malyutka3.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "manu.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "meet.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "merries.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mlp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mm.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mokka.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "monitoring.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mozaikabooks.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mrm.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mta1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nan-nestogen.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nan.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nerf.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "net.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nic.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nick.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ns1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nutrilon.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nutrilon3-cashback.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "old.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "oos.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pampers.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pampersclub.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pamperspure.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "philips.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pim.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pim.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pixel.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pki.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "play-doh.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pluskids.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "princess.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "prm3.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "prm4.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo-manu.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "registry.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ris.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rproxy.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rtz.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "s1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sapepp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "saperp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sappbi1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sappip.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sapsmp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "satellite.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sbp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "school.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sip.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "smart.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sp-test.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "special.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "st.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "staffapp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "supplier.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tanoshi.bf.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "temapromo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test.api.mobile.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tp.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "trikota2024.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "trikota2025.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "uch-portal.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "unleash-edge-dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "video.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vpn.dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "web-project.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "webconf.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "welcome.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wh.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wiki.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildcard.new.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zoozavr.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zoozavr.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.go.uat.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "alfare.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.go.dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.go.stage.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.go.uat.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.stage.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "autokreslo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bonus75.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dc.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "deliveryzoo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dmteam.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dove.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "download.mail.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dubai.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dubai2020.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "eco.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "f.hq.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fleuralpine.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ftp1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.new1.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.stage.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "go.uat.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hiddenside.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hq.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hybris.dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "investor.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lego-jurassic.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lego-promo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legoboost.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legocars.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legodots.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legoduplo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legogaming.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legohidden.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legomario.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legomovie2.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legopromo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legostarwars20.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legotoystory.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "legoxmas.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "live.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "marvel.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mascot.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "meineliebe.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mir.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "moony.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "natgeo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nestle.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "nestogen.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ninjago-promo.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "owa.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "philipsavent.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "present.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "prm2.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "promo-admin.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "push.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qr.dema-bonus.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "regdelivery.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "services.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "social.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "splat.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static2.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "testrail.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "toy4.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "trikota.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tsarevny.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "uat.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ui-kit.dev.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "unikitty.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "webmail.detmir.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wwf.detmir.ru",
+    "ip": ""
+  }
+]

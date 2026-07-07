@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/splitTunnelingPresets">
+        <file>2GIS.json</file>
+        <file>AlfaBank.json</file>
+        <file>Detskiy-Mir.json</file>
+        <file>GOLD-APPLE.json</file>
+        <file>Gosuslugi.json</file>
+        <file>Goverment_OTHER.json</file>
+        <file>MAGNIT.json</file>
+        <file>MAX.json</file>
+        <file>OK.json</file>
+        <file>OZON.json</file>
+        <file>OZON_BANK.json</file>
+        <file>Perekrestok.json</file>
+        <file>SAMOKAT.json</file>
+        <file>SberBank.json</file>
+        <file>T-BANK.json</file>
+        <file>VK-VIDEO.json</file>
+        <file>VK.json</file>
+        <file>VTB.json</file>
+        <file>Wildberries.json</file>
+        <file>Yandex-ALL.json</file>
+    </qresource>
+</RCC>

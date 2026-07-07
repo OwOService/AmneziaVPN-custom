@@ -1,0 +1,62 @@
+[
+  {
+    "hostname": "keys.api.2gis.com",
+    "ip": ""
+  },
+  {
+    "hostname": "error-tracking.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ip4.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ts.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "core-colibri-api.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "code-push-api.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.adjust.com",
+    "ip": ""
+  },
+  {
+    "hostname": "s1.bss.2gis.com",
+    "ip": ""
+  },
+  {
+    "hostname": "ssp-gw.kuper.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "damcdn.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "showcase-image.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cm.samokat.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tracking-app.diginetica.net",
+    "ip": ""
+  }
+]

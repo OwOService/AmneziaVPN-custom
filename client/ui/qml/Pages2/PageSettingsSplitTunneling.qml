@@ -21,14 +21,18 @@ PageType {
     id: root
 
     property var isServerFromTelegramApi: ServersUiController.isServerFromApi(ServersUiController.defaultServerId)
-    
+
+    // pageEnabled now only reflects whether the current server/container supports
+    // split tunneling at all — this is a hard block regardless of connection state.
+    // Editing the site list itself (add/remove/import/presets/search) is allowed
+    // even while connected; only the on/off toggle and the mode selector are
+    // locked while connected, via the separate toggleAndModeEnabled binding below,
+    // since those change routing behavior in a way that doesn't apply live.
     property bool pageEnabled
+    readonly property bool toggleAndModeEnabled: root.pageEnabled && !ConnectionController.isConnected
 
     Component.onCompleted: {
-        if (ConnectionController.isConnected) {
-            PageController.showNotificationMessage(qsTr("Cannot change split tunneling settings during active connection"))
-            root.pageEnabled = false
-        } else if (ServersUiController.isDefaultServerDefaultContainerHasSplitTunneling) {
+        if (ServersUiController.isDefaultServerDefaultContainerHasSplitTunneling) {
             PageController.showNotificationMessage(qsTr("Default server does not support split tunneling function"))
             root.pageEnabled = false
         } else {
@@ -100,11 +104,11 @@ PageType {
 
             headerText: qsTr("Split tunneling")
 
-            enabled: root.pageEnabled
+            enabled: root.toggleAndModeEnabled
             showSwitcher: true
             switcher {
                 checked: IpSplitTunnelingController.isSplitTunnelingEnabled
-                enabled: root.pageEnabled
+                enabled: root.toggleAndModeEnabled
             }
             switcherFunction: function(checked) {
                 IpSplitTunnelingController.toggleSplitTunneling(checked)
@@ -123,7 +127,7 @@ PageType {
             drawerHeight: 0.4375
             drawerParent: root
 
-            enabled: root.pageEnabled
+            enabled: root.toggleAndModeEnabled
 
             headerText: qsTr("Mode")
 
@@ -156,6 +160,69 @@ PageType {
                         selectedIndex = getRouteModesModelIndex()
                     }
                 }
+            }
+        }
+
+        Rectangle {
+            id: reconnectNoticeBanner
+            objectName: "reconnectNoticeBanner"
+
+            Layout.fillWidth: true
+            Layout.topMargin: 16
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.preferredHeight: reconnectNoticeContent.implicitHeight + 24
+
+            visible: root.pageEnabled && ConnectionController.isConnected
+            radius: 8
+            color: AmneziaStyle.color.softGoldenApricot
+
+            RowLayout {
+                id: reconnectNoticeContent
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 12
+                anchors.rightMargin: 12
+
+                spacing: 8
+
+                Image {
+                    source: "qrc:/images/controls/info.svg"
+                    sourceSize: Qt.size(20, 20)
+                    Layout.alignment: Qt.AlignTop
+                }
+
+                CaptionTextType {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    color: AmneziaStyle.color.paleGray
+                    text: qsTr("You can edit the site list while connected, but changes to which sites use the VPN only take effect after you reconnect.")
+                }
+            }
+        }
+
+        DividerType {
+            Layout.topMargin: 16
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+        }
+
+        LabelWithButtonType {
+            id: sitePresetsButton
+            Layout.fillWidth: true
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+
+            enabled: root.pageEnabled
+
+            text: qsTr("Add Russian services preset")
+            descriptionText: qsTr("Bypass the VPN for Russian banks, marketplaces and government sites")
+            rightImageSource: "qrc:/images/controls/chevron-right.svg"
+
+            clickedFunction: function() {
+                sitePresetsDrawer.openTriggered()
             }
         }
     }
@@ -448,9 +515,117 @@ PageType {
         }
     }
 
+    DrawerType2 {
+        id: sitePresetsDrawer
+
+        anchors.fill: parent
+        expandedHeight: parent.height * 0.6
+
+        expandedStateContent: Item {
+            implicitHeight: sitePresetsDrawer.expandedHeight
+
+            BackButtonType {
+                id: sitePresetsDrawerBackButton
+
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.topMargin: 16
+
+                backButtonFunction: function() {
+                    sitePresetsDrawer.closeTriggered()
+                }
+
+                onFocusChanged: {
+                    if (this.activeFocus) {
+                        sitePresetsDrawerListView.positionViewAtBeginning()
+                    }
+                }
+            }
+
+            ListViewType {
+                id: sitePresetsDrawerListView
+
+                anchors.top: sitePresetsDrawerBackButton.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+
+                header: ColumnLayout {
+                    width: sitePresetsDrawerListView.width
+
+                    Header2Type {
+                        Layout.fillWidth: true
+                        Layout.margins: 16
+
+                        headerText: qsTr("Add Russian services preset")
+                    }
+
+                    CaptionTextType {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 16
+                        Layout.rightMargin: 16
+                        Layout.bottomMargin: 8
+
+                        color: AmneziaStyle.color.mutedGray
+                        wrapMode: Text.WordWrap
+                        text: qsTr("These Russian services and banks track the IP addresses of servers that connect to them, which puts VPN server IPs at risk of being blocked. Adding a preset routes that service directly through your own connection instead of the VPN.")
+                    }
+
+                    DividerType {}
+                }
+
+                model: sitePresetOptions
+
+                delegate: ColumnLayout {
+                    width: sitePresetsDrawerListView.width
+
+                    LabelWithButtonType {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 16
+                        Layout.rightMargin: 16
+
+                        text: title
+                        descriptionText: description
+
+                        clickedFunction: function() {
+                            clickedHandler()
+                        }
+                    }
+
+                    DividerType {}
+                }
+            }
+        }
+    }
+
     property list<QtObject> importOptions: [
         replaceOption,
         addOption,
+    ]
+
+    property list<QtObject> sitePresetOptions: [
+        presetAll,
+        presetSberBank,
+        presetTBank,
+        presetVtb,
+        presetAlfaBank,
+        presetOzonBank,
+        presetGosuslugi,
+        presetGovernmentOther,
+        presetYandex,
+        presetVk,
+        presetVkVideo,
+        presetOk,
+        presetMax,
+        presetWildberries,
+        presetOzon,
+        presetMagnit,
+        presetPerekrestok,
+        presetDetskiyMir,
+        presetGoldApple,
+        presetSamokat,
+        preset2gis,
     ]
 
     QtObject {
@@ -477,6 +652,194 @@ PageType {
                 root.importSites(fileName, false)
             }
         }
+    }
+
+    QtObject {
+        id: presetAll
+        readonly property string title: qsTr("All of the above")
+        readonly property string description: qsTr("Adds every preset below in one go")
+        readonly property var clickedHandler: function() { root.addAllPresets() }
+    }
+
+    QtObject {
+        id: presetSberBank
+        readonly property string title: qsTr("SberBank")
+        readonly property string description: "6 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/SberBank.json") }
+    }
+
+    QtObject {
+        id: presetTBank
+        readonly property string title: qsTr("T-Bank")
+        readonly property string description: "10 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/T-BANK.json") }
+    }
+
+    QtObject {
+        id: presetVtb
+        readonly property string title: qsTr("VTB")
+        readonly property string description: "11 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/VTB.json") }
+    }
+
+    QtObject {
+        id: presetAlfaBank
+        readonly property string title: qsTr("Alfa-Bank")
+        readonly property string description: "577 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/AlfaBank.json") }
+    }
+
+    QtObject {
+        id: presetOzonBank
+        readonly property string title: qsTr("Ozon Bank")
+        readonly property string description: "8 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/OZON_BANK.json") }
+    }
+
+    QtObject {
+        id: presetGosuslugi
+        readonly property string title: qsTr("Gosuslugi")
+        readonly property string description: "30 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Gosuslugi.json") }
+    }
+
+    QtObject {
+        id: presetGovernmentOther
+        readonly property string title: qsTr("Other government sites")
+        readonly property string description: "8 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Goverment_OTHER.json") }
+    }
+
+    QtObject {
+        id: presetYandex
+        readonly property string title: qsTr("Yandex ecosystem")
+        readonly property string description: "134 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Yandex-ALL.json") }
+    }
+
+    QtObject {
+        id: presetVk
+        readonly property string title: qsTr("VK")
+        readonly property string description: "27 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/VK.json") }
+    }
+
+    QtObject {
+        id: presetVkVideo
+        readonly property string title: qsTr("VK Video")
+        readonly property string description: "81 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/VK-VIDEO.json") }
+    }
+
+    QtObject {
+        id: presetOk
+        readonly property string title: qsTr("Odnoklassniki")
+        readonly property string description: "15 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/OK.json") }
+    }
+
+    QtObject {
+        id: presetMax
+        readonly property string title: qsTr("MAX messenger")
+        readonly property string description: "20 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/MAX.json") }
+    }
+
+    QtObject {
+        id: presetWildberries
+        readonly property string title: qsTr("Wildberries")
+        readonly property string description: "64 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Wildberries.json") }
+    }
+
+    QtObject {
+        id: presetOzon
+        readonly property string title: qsTr("OZON")
+        readonly property string description: "20 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/OZON.json") }
+    }
+
+    QtObject {
+        id: presetMagnit
+        readonly property string title: qsTr("Magnit")
+        readonly property string description: "359 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/MAGNIT.json") }
+    }
+
+    QtObject {
+        id: presetPerekrestok
+        readonly property string title: qsTr("Perekrestok")
+        readonly property string description: "99 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Perekrestok.json") }
+    }
+
+    QtObject {
+        id: presetDetskiyMir
+        readonly property string title: qsTr("Detsky Mir")
+        readonly property string description: "279 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/Detskiy-Mir.json") }
+    }
+
+    QtObject {
+        id: presetGoldApple
+        readonly property string title: qsTr("Gold Apple")
+        readonly property string description: "150 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/GOLD-APPLE.json") }
+    }
+
+    QtObject {
+        id: presetSamokat
+        readonly property string title: qsTr("Samokat")
+        readonly property string description: "15 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/SAMOKAT.json") }
+    }
+
+    QtObject {
+        id: preset2gis
+        readonly property string title: qsTr("2GIS")
+        readonly property string description: "41 " + qsTr("domains")
+        readonly property var clickedHandler: function() { root.addPreset(":/splitTunnelingPresets/2GIS.json") }
+    }
+
+    readonly property var allPresetFiles: [
+        ":/splitTunnelingPresets/SberBank.json",
+        ":/splitTunnelingPresets/T-BANK.json",
+        ":/splitTunnelingPresets/VTB.json",
+        ":/splitTunnelingPresets/AlfaBank.json",
+        ":/splitTunnelingPresets/OZON_BANK.json",
+        ":/splitTunnelingPresets/Gosuslugi.json",
+        ":/splitTunnelingPresets/Goverment_OTHER.json",
+        ":/splitTunnelingPresets/Yandex-ALL.json",
+        ":/splitTunnelingPresets/VK.json",
+        ":/splitTunnelingPresets/VK-VIDEO.json",
+        ":/splitTunnelingPresets/OK.json",
+        ":/splitTunnelingPresets/MAX.json",
+        ":/splitTunnelingPresets/Wildberries.json",
+        ":/splitTunnelingPresets/OZON.json",
+        ":/splitTunnelingPresets/MAGNIT.json",
+        ":/splitTunnelingPresets/Perekrestok.json",
+        ":/splitTunnelingPresets/Detskiy-Mir.json",
+        ":/splitTunnelingPresets/GOLD-APPLE.json",
+        ":/splitTunnelingPresets/SAMOKAT.json",
+        ":/splitTunnelingPresets/2GIS.json",
+    ]
+
+    function addPreset(fileName) {
+        PageController.showBusyIndicator(true)
+        IpSplitTunnelingController.importSites(fileName, false)
+        PageController.showBusyIndicator(false)
+        sitePresetsDrawer.closeTriggered()
+        moreActionsDrawer.closeTriggered()
+    }
+
+    function addAllPresets() {
+        PageController.showBusyIndicator(true)
+        for (var i = 0; i < root.allPresetFiles.length; i++) {
+            IpSplitTunnelingController.importSites(root.allPresetFiles[i], false)
+        }
+        PageController.showBusyIndicator(false)
+        sitePresetsDrawer.closeTriggered()
+        moreActionsDrawer.closeTriggered()
     }
 
     function importSites(fileName, replaceExistingSites) {

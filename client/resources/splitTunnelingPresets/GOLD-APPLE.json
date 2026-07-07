@@ -1,0 +1,602 @@
+[
+  {
+    "hostname": "sentry-prod.gid.team",
+    "ip": ""
+  },
+  {
+    "hostname": "auth.gid.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.vk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "app.gid.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-m.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.mindbox.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mkevents.auth.gid.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mvcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "m-22820.fraudshallnotpass.com",
+    "ip": ""
+  },
+  {
+    "hostname": "mcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "identity.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "aaa02.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "admin.cards-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-n.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apm.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "argocd.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "autodiscover.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "beautydna.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "beautyexpress.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "benefits.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bfd.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "birthday.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "box.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "callcenter.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cards-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cards.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ccdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnf.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "chat.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "checkout.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "confluence.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "data-monitoring-2.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "delivery.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "demo-ecspublicapi.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dolyoffline.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ec-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ec.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "esf.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "express.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "fieldsvc.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "forme.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "front-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ga.manager.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "horrorstories.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "hr.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "identity-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "integration.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "invite.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "iperf.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ism.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "it.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "jenkins.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "jira01.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "job.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "labgame.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "live-admin.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "live.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "logo.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lottery.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "loyalty.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "lp.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "manager.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mapi.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mattermost-test.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "media1.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mixit.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mm.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "naosskincare.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ncdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "newyear.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ns1.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ns2.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ns3.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "offer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "owa.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "packages.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "partner.manager.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pass.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pcr.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "plaid.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "portal.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod-api.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod-identity.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod-mts.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "preprod.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "price-monitor.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "prize.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "prohairlab.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "providers.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pvs.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "qv.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rebus.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "reports.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rest.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rms.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "room.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sd.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sdesk.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "secret.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "seller.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sftp.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sherlock-connect.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sherlock-media.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sherlock.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "short.univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sip.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sms-gateway.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "smtp.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "snake.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sonarqube.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage-ccdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage-pcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage-pvs.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage-vcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stage.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "starchart.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "survey.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tamagotchi.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tcdn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "teens.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-api.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-checkout.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-cloud.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-delivery.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-sherlock-connect.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "test-wfm-mobile.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "testecom.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tinkoff.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "travel.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tvoy-promokod.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "univer.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vichy-x.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vpn-ipsec.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vpn-ra.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vpn.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "webhook.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wfm-bot.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wfm-mobile.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wfm.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wishlist.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wms.goldapple.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "yago.goldapple.ru",
+    "ip": ""
+  }
+]

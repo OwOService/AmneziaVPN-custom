@@ -1,0 +1,62 @@
+[
+  {
+    "hostname": "ad.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "clientapi.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "inappcheck.itunes.apple.com",
+    "ip": ""
+  },
+  {
+    "hostname": "ip4.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rs.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sdk-api.apptracer.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "st.okcdn.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tamtam.ok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vki2.okcdn.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wmf1.odnoklassniki.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ts.tracker-api.vk-analytics.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.ok.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "i.okcdn.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "r.mradx.net",
+    "ip": ""
+  }
+]

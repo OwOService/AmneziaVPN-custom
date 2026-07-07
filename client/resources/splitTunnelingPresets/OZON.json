@@ -1,0 +1,82 @@
+[
+  {
+    "hostname": "api.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.vk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn1.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn1.ozonusercontent.com",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn2.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnvideo.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "docs.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "io.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ir-3.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ir.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "p.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sentry.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stats.rustore.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "st.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "v-1.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vp-1.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "vr-1.ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "www.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "xapi.ozon.ru",
+    "ip": ""
+  }
+]

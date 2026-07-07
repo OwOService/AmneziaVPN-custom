@@ -1,0 +1,34 @@
+[
+  {
+    "hostname": "bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ecom-bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3ds-v2-auth-test.ecom-bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3ds-v2-auth.ecom-bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3ds-v2-challenge-test.bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3ds-v2-challenge-test.ecom-bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3ds-v2-challenge.bank.ozon.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "finance.ozon.ru",
+    "ip": ""
+  }
+]

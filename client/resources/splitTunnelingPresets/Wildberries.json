@@ -1,0 +1,258 @@
+[
+  {
+    "hostname": "marketplace-sentry.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static-basket-01.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ru.pool.ntp.org",
+    "ip": ""
+  },
+  {
+    "hostname": "wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "apps-config.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "marketing-info.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "journal-bt.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "banners-bt.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "antibot.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "napi.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wildtracker.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ug-bt.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "points-bt.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "user-storage-01.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "data-checker.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static-basket-03.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "a.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static-basket-02.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-android.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "xapi.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-17.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-35.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-15.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-24.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-38.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-36.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-03.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-12.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-25.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-11.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-23.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-14.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-27.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-34.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-01.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-16.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-29.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-19.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-08.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-20.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-18.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-13.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-10.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-33.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-22.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-03.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-28.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "locator.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-04.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "splitter.wb.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wibes-01.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-26.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kzn-basket-cdn-03bl.geobasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kzn-static-cdn-03bl.geobasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-09.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kzn-basket-cdn-01bl.geobasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kzn-basket-cdn-02bl.geobasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-08.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-01.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kzn-static-cdn-01bl.geobasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-05.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "basket-37.wbbasket.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "videonme-basket-12.wbbasket.ru",
+    "ip": ""
+  }
+]

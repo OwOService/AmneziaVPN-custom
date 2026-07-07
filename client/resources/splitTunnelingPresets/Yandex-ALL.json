@@ -1,0 +1,538 @@
+[
+  {
+    "hostname": "yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ya.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dzen.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zen.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "zen.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "zen.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "suggest.dzen.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso.dzen.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "suggest.sso.dzen.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "travel.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "travel.yastatic.net",
+    "ip": ""
+  },
+  {
+    "hostname": "informer.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.uxfeedback.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "uxfeedback-cdn.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "uxfeedback.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mediafeeds.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "http-check-headers.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kiks.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "kiks.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "avatars.mds.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "avatars.mds.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "mc.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mc.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "frontend.vh.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "favicon.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "favicon.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "favicon.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "browser.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "api.browser.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "wap.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "api.browser.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wap.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mail.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "yabs.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "neuro.translate.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cloud.cdn.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cloud.cdn.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "cloud.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "3475482542.mc.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "browser.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "collections.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "collections.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "zen-yabro-morda.mediascope.mc.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bro-bg-store.s3.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "bro-bg-store.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "bro-bg-store.s3.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "static-mon.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "sync.browser.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "storage.ape.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-rad-23.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "log.strm.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "egress.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cloudcdn-ams19.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "surveys.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "an.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sba.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sba.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "sba.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "yastatic.net",
+    "ip": ""
+  },
+  {
+    "hostname": "csp.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnrhkgfkkpupuotntfj.svc.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "yabro-wbplugin.edadeal.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.events.plus.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "speller.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "market.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "pokupki.market.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api-maps.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "enterprise.api-maps.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "300.ya.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "brontp-pre.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "dr2.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "dr.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ws-api.oneme.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "mobileproxy.passport.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "external-api.pixel.plus.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ma.kinopoisk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "backend.messenger.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "graphql.kinopoisk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "report.appmetrica.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "tracking.ott.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ext-strm-rurtw01bln-01.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnrkovrtys7nucgnzhe.svc.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "timing.ott.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-158.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-169.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-164.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-69.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-1.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-47.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-m9-150.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-mar-197.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "strm-mar-223.strm.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "rosenberg.appmetrica.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "st.kp.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "passport.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sp.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "concurrency-arbiter.ott.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "egw.home-gateway.plus.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.browser.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "alice.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.lbs.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "vkpns.rustore.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "stats.rustore.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "storage.mds.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "startup.mobile.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.passport.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cloud-api.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "proxy.mob.maps.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "geointernal.mob.maps.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "app.tanker.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "tanker.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "mobile-maps-common.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.plus.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "cdnretkamn5t7jmy24yc.svc.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ext-cloudcdn-rurtw01bln-01.cdn.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "api.music.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "ynison.music.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "mn5xigko7kvwfnwx.ynison.music.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "avatars.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "music-public-resources.s3.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "iot.quasar.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "api.messenger.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "external-api.mediabilling.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "egw.pull-formats.plet.yandex.net",
+    "ip": ""
+  },
+  {
+    "hostname": "video-full-screen.s3.yandex.net",
+    "ip": ""
+  }
+]
