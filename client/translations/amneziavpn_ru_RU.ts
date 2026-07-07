@@ -2308,6 +2308,26 @@ Thank you for staying with us!</source>
         <source>Use pure black backgrounds to save battery and avoid glow on OLED screens.</source>
         <translation>Использовать чистый чёрный фон для экономии заряда и защиты от засветов на OLED-экранах.</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="74"/>
+        <source>Accent color</source>
+        <translation>Акцентный цвет</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="75"/>
+        <source>Pick a preset, or fine-tune with the slider below.</source>
+        <translation>Выберите готовый цвет или настройте свой ниже.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="96"/>
+        <source>Fine-tune</source>
+        <translation>Точная настройка</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsPersonalization.qml" line="97"/>
+        <source>Drag to pick any color the presets above don't cover.</source>
+        <translation>Перетащите ползунок, если ни один из готовых цветов не подошёл.</translation>
+    </message>
 </context>
 <context>
     <name>DesktopSidebar</name>
@@ -3238,6 +3258,161 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="473"/>
         <source>Add imported sites to existing ones</source>
         <translation>Добавить импортированные сайты к существующим</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="176"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="517"/>
+        <source>Add Russian services preset</source>
+        <translation>Добавить пресет российских сервисов</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="177"/>
+        <source>Bypass the VPN for Russian banks, marketplaces and government sites</source>
+        <translation>Пропускать российские банки, маркетплейсы и госсайты мимо VPN</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="528"/>
+        <source>These Russian services and banks track the IP addresses of servers that connect to them, which puts VPN server IPs at risk of being blocked. Adding a preset routes that service directly through your own connection instead of the VPN.</source>
+        <translation>Эти российские сервисы и банки отслеживают IP-адреса серверов, с которых к ним обращаются, из-за чего IP VPN-сервера рискует попасть в блокировку. Добавление пресета направляет трафик этого сервиса напрямую через ваше соединение, минуя VPN.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="615"/>
+        <source>All of the above</source>
+        <translation>Все сразу</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="616"/>
+        <source>Adds every preset below in one go</source>
+        <translation>Добавляет все пресеты ниже одним нажатием</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="623"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="630"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="637"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="644"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="651"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="658"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="665"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="672"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="679"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="686"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="693"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="700"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="707"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="714"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="721"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="728"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="735"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="742"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="749"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="756"/>
+        <source>domains</source>
+        <translation>доменов</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="622"/>
+        <source>SberBank</source>
+        <translation>СберБанк</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="629"/>
+        <source>T-Bank</source>
+        <translation>Т-Банк</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="636"/>
+        <source>VTB</source>
+        <translation>ВТБ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="643"/>
+        <source>Alfa-Bank</source>
+        <translation>Альфа-Банк</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="650"/>
+        <source>Ozon Bank</source>
+        <translation>Озон Банк</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="657"/>
+        <source>Gosuslugi</source>
+        <translation>Госуслуги</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="664"/>
+        <source>Other government sites</source>
+        <translation>Прочие государственные сайты</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="671"/>
+        <source>Yandex ecosystem</source>
+        <translation>Экосистема Яндекса</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="678"/>
+        <source>VK</source>
+        <translation>ВКонтакте</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="685"/>
+        <source>VK Video</source>
+        <translation>VK Видео</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="692"/>
+        <source>Odnoklassniki</source>
+        <translation>Одноклассники</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="699"/>
+        <source>MAX messenger</source>
+        <translation>Мессенджер MAX</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="706"/>
+        <source>Wildberries</source>
+        <translation>Wildberries</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="713"/>
+        <source>OZON</source>
+        <translation>OZON</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="720"/>
+        <source>Magnit</source>
+        <translation>Магнит</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="727"/>
+        <source>Perekrestok</source>
+        <translation>Перекрёсток</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="734"/>
+        <source>Detsky Mir</source>
+        <translation>Детский Мир</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="741"/>
+        <source>Gold Apple</source>
+        <translation>Золотое Яблоко</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="748"/>
+        <source>Samokat</source>
+        <translation>Самокат</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="755"/>
+        <source>2GIS</source>
+        <translation>2ГИС</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="201"/>
+        <source>You can edit the site list while connected, but changes to which sites use the VPN only take effect after you reconnect.</source>
+        <translation>Список сайтов можно редактировать при активном подключении, но изменения в том, какие сайты идут через VPN, применятся только после переподключения.</translation>
     </message>
 </context>
 <context>
