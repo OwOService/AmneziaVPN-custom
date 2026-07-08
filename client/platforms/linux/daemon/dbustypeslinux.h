@@ -61,6 +61,73 @@ typedef QList<DnsResolver> DnsResolverList;
 Q_DECLARE_METATYPE(DnsResolver);
 Q_DECLARE_METATYPE(DnsResolverList);
 
+/* D-Bus metatype for marshalling arguments to the SetLinkDNSEx method
+ * (a(iayqs) — family, address bytes, port, server-name for SNI/DoT).
+ * Unlike SetLinkDNS, this lets us hand systemd-resolved a non-standard
+ * port for our own resolver, so it doesn't have to fight whatever is
+ * already bound to :53 on the loopback address we'd otherwise have to
+ * share. Only available on systemd >= 249 — see
+ * DnsSplitStrategyDetector, which callers must check before using this. */
+class DnsResolverEx : public QHostAddress {
+ public:
+  DnsResolverEx(const QHostAddress& address = QHostAddress(),
+                quint16 port = 0)
+      : QHostAddress(address), m_port(port) {}
+
+  friend QDBusArgument& operator<<(QDBusArgument& args,
+                                   const DnsResolverEx& ip) {
+    args.beginStructure();
+    if (ip.protocol() == QAbstractSocket::IPv6Protocol) {
+      Q_IPV6ADDR addrv6 = ip.toIPv6Address();
+      args << AF_INET6;
+      args << QByteArray::fromRawData((const char*)&addrv6, sizeof(addrv6));
+    } else {
+      quint32 addrv4 = ip.toIPv4Address();
+      QByteArray data(4, 0);
+      data[0] = (addrv4 >> 24) & 0xff;
+      data[1] = (addrv4 >> 16) & 0xff;
+      data[2] = (addrv4 >> 8) & 0xff;
+      data[3] = (addrv4 >> 0) & 0xff;
+      args << AF_INET;
+      args << data;
+    }
+    args << ip.m_port;
+    // Server name for SNI/DoT verification — empty, since this is plain
+    // unencrypted DNS to our own local resolver, not DNS-over-TLS.
+    args << QString();
+    args.endStructure();
+    return args;
+  }
+  friend const QDBusArgument& operator>>(const QDBusArgument& args,
+                                         DnsResolverEx& ip) {
+    int family;
+    QByteArray data;
+    QString serverName;
+    args.beginStructure();
+    args >> family >> data >> ip.m_port >> serverName;
+    args.endStructure();
+    if (family == AF_INET6) {
+      ip.setAddress(data.constData());
+    } else if (data.count() >= 4) {
+      quint32 addrv4 = 0;
+      addrv4 |= (data[0] << 24);
+      addrv4 |= (data[1] << 16);
+      addrv4 |= (data[2] << 8);
+      addrv4 |= (data[3] << 0);
+      ip.setAddress(addrv4);
+    }
+    return args;
+  }
+
+  quint16 port() const { return m_port; }
+
+ private:
+  quint16 m_port = 0;
+};
+typedef QList<DnsResolverEx> DnsResolverExList;
+Q_DECLARE_METATYPE(DnsResolverEx);
+Q_DECLARE_METATYPE(DnsResolverExList);
+
 /* D-Bus metatype for marshalling arguments to the SetLinkDomains method */
 class DnsLinkDomain {
  public:
@@ -152,6 +219,10 @@ class DnsMetatypeRegistrationProxy {
     qDBusRegisterMetaType<DnsResolver>();
     qRegisterMetaType<DnsResolverList>();
     qDBusRegisterMetaType<DnsResolverList>();
+    qRegisterMetaType<DnsResolverEx>();
+    qDBusRegisterMetaType<DnsResolverEx>();
+    qRegisterMetaType<DnsResolverExList>();
+    qDBusRegisterMetaType<DnsResolverExList>();
     qRegisterMetaType<DnsLinkDomain>();
     qDBusRegisterMetaType<DnsLinkDomain>();
     qRegisterMetaType<DnsLinkDomainList>();
