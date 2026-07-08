@@ -253,6 +253,7 @@ if(LINUX)
 
     set(HEADERS ${HEADERS}
         ${CMAKE_CURRENT_LIST_DIR}/router_linux.h
+        ${CMAKE_CURRENT_LIST_DIR}/dynamicsplitresolver.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxnetworkwatcher.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxnetworkwatcherworker.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxdependencies.h
@@ -269,6 +270,7 @@ if(LINUX)
 
     set(SOURCES ${SOURCES}
         ${CMAKE_CURRENT_LIST_DIR}/router_linux.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/dynamicsplitresolver.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxnetworkwatcher.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxnetworkwatcherworker.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../../client/platforms/linux/linuxdependencies.cpp
