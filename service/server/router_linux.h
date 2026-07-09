@@ -37,6 +37,24 @@ public:
     bool StopRoutingIpv6();
     bool updateResolvers(const QString& ifname, const QList<QHostAddress>& resolvers);
     bool restoreResolvers();
+
+    /**
+     * @brief setupDynamicSplitRouting - wires up the mangle+ipset+policy-routing
+     * chain for the ipset+dnsmasq dynamic split-tunneling mode: packets whose
+     * destination is in ipsetV4Name/ipsetV6Name get fwmark-tagged, and a
+     * dedicated routing table sends fwmark'd traffic through tunnelDevice.
+     * This is entirely separate from the existing cgroup-based
+     * setupTrafficSplitting() in linuxfirewall.cpp — different mechanism,
+     * different fwmark, safe to run alongside it.
+     * Verified manually against real traffic before writing this — see
+     * amnezia-fork-session-report_v11 (the ip6tables --match-set + fwmark +
+     * "ip -6 route get ... mark" comparison against an unreachable-route
+     * test table).
+     */
+    bool setupDynamicSplitRouting(const QString &tunnelDevice, const QString &ipsetV4Name,
+                                  const QString &ipsetV6Name, quint32 fwmark, int tableId);
+    bool teardownDynamicSplitRouting(const QString &ipsetV4Name, const QString &ipsetV6Name,
+                                     quint32 fwmark, int tableId);
 public slots:
 
 private:

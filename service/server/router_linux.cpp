@@ -285,6 +285,132 @@ bool RouterLinux::restoreResolvers() {
     return m_dnsUtil->restoreResolvers();
 }
 
+namespace {
+// Small helper mirroring the fire-and-check-exit-code pattern used
+// throughout this file (createTun, StartRoutingIpv6, ...), but returning
+// success/failure instead of early-returning, since setup/teardown here
+// need to keep going and report the aggregate result even if one step in
+// the middle fails (e.g. a rule that's already absent on teardown).
+bool runCommand(const QString &program, const QStringList &args, bool ignoreFailure = false)
+{
+    QProcess process;
+    process.start(program, args);
+    if (!process.waitForStarted(1000) || !process.waitForFinished(2000)) {
+        qDebug().noquote() << "RouterLinux: command failed to run:" << program << args;
+        return ignoreFailure;
+    }
+    if (process.exitCode() != 0 && !ignoreFailure) {
+        qDebug().noquote() << "RouterLinux: command exited" << process.exitCode() << ":"
+                          << program << args << "-" << process.readAllStandardError();
+        return false;
+    }
+    return true;
+}
+}  // namespace
+
+bool RouterLinux::setupDynamicSplitRouting(const QString &tunnelDevice,
+                                           const QString &ipsetV4Name,
+                                           const QString &ipsetV6Name, quint32 fwmark,
+                                           int tableId)
+{
+    const QString markHex = QStringLiteral("0x%1").arg(fwmark, 0, 16);
+    const QString chainV4 = QStringLiteral("AMN_SPLIT_DYN");
+    const QString chainV6 = QStringLiteral("AMN_SPLIT_DYN6");
+
+    bool ok = true;
+
+    // mangle chains: create is allowed to fail (chain may already exist
+    // from a previous unclean shutdown), flush must succeed so we never
+    // start with stale rules from a previous site list.
+    runCommand("sudo", {"iptables", "-t", "mangle", "-N", chainV4}, /*ignoreFailure=*/true);
+    ok &= runCommand("sudo", {"iptables", "-t", "mangle", "-F", chainV4});
+    ok &= runCommand("sudo", {"iptables", "-t", "mangle", "-A", chainV4, "-m", "set",
+                              "--match-set", ipsetV4Name, "dst", "-j", "MARK",
+                              "--set-xmark", markHex + "/0xffffffff"});
+    runCommand("sudo", {"iptables", "-t", "mangle", "-D", "OUTPUT", "-j", chainV4},
+              /*ignoreFailure=*/true);
+    ok &= runCommand("sudo", {"iptables", "-t", "mangle", "-A", "OUTPUT", "-j", chainV4});
+
+    runCommand("sudo", {"ip6tables", "-t", "mangle", "-N", chainV6}, /*ignoreFailure=*/true);
+    ok &= runCommand("sudo", {"ip6tables", "-t", "mangle", "-F", chainV6});
+    ok &= runCommand("sudo", {"ip6tables", "-t", "mangle", "-A", chainV6, "-m", "set",
+                              "--match-set", ipsetV6Name, "dst", "-j", "MARK",
+                              "--set-xmark", markHex + "/0xffffffff"});
+    runCommand("sudo", {"ip6tables", "-t", "mangle", "-D", "OUTPUT", "-j", chainV6},
+              /*ignoreFailure=*/true);
+    ok &= runCommand("sudo", {"ip6tables", "-t", "mangle", "-A", "OUTPUT", "-j", chainV6});
+
+    // Policy routing table, addressed purely by numeric id (see session
+    // report — /etc/iproute2/rt_tables doesn't exist on every distro, no
+    // reason to depend on it). WireGuard interfaces are point-to-point, so
+    // a device-only default route (no explicit gateway) is correct here,
+    // same convention the rest of this codebase already uses for the tun
+    // device.
+    const QString tableIdStr = QString::number(tableId);
+    runCommand("sudo", {"ip", "route", "del", "default", "table", tableIdStr},
+              /*ignoreFailure=*/true);
+    ok &= runCommand("sudo",
+                     {"ip", "route", "add", "default", "dev", tunnelDevice, "table", tableIdStr});
+    runCommand("sudo", {"ip", "rule", "del", "fwmark", markHex, "lookup", tableIdStr},
+              /*ignoreFailure=*/true);
+    ok &= runCommand(
+        "sudo", {"ip", "rule", "add", "fwmark", markHex, "lookup", tableIdStr, "priority", "100"});
+
+    runCommand("sudo", {"ip", "-6", "route", "del", "default", "table", tableIdStr},
+              /*ignoreFailure=*/true);
+    ok &= runCommand(
+        "sudo", {"ip", "-6", "route", "add", "default", "dev", tunnelDevice, "table", tableIdStr});
+    runCommand("sudo", {"ip", "-6", "rule", "del", "fwmark", markHex, "lookup", tableIdStr},
+              /*ignoreFailure=*/true);
+    ok &= runCommand("sudo", {"ip", "-6", "rule", "add", "fwmark", markHex, "lookup", tableIdStr,
+                             "priority", "100"});
+
+    qDebug().noquote() << "RouterLinux::setupDynamicSplitRouting" << (ok ? "OK" : "FAILED")
+                      << "mark" << markHex << "table" << tableIdStr << "dev" << tunnelDevice;
+    return ok;
+}
+
+bool RouterLinux::teardownDynamicSplitRouting(const QString &ipsetV4Name,
+                                              const QString &ipsetV6Name, quint32 fwmark,
+                                              int tableId)
+{
+    const QString markHex = QStringLiteral("0x%1").arg(fwmark, 0, 16);
+    const QString chainV4 = QStringLiteral("AMN_SPLIT_DYN");
+    const QString chainV6 = QStringLiteral("AMN_SPLIT_DYN6");
+    const QString tableIdStr = QString::number(tableId);
+
+    // Best-effort in every step — teardown must not abort partway and
+    // leave some rules dangling just because an earlier one was already
+    // gone (e.g. called twice, or after a partial setup failure).
+    runCommand("sudo", {"ip", "rule", "del", "fwmark", markHex, "lookup", tableIdStr},
+              /*ignoreFailure=*/true);
+    runCommand("sudo", {"ip", "-6", "rule", "del", "fwmark", markHex, "lookup", tableIdStr},
+              /*ignoreFailure=*/true);
+    runCommand("sudo", {"ip", "route", "del", "default", "table", tableIdStr},
+              /*ignoreFailure=*/true);
+    runCommand("sudo", {"ip", "-6", "route", "del", "default", "table", tableIdStr},
+              /*ignoreFailure=*/true);
+
+    runCommand("sudo", {"iptables", "-t", "mangle", "-D", "OUTPUT", "-j", chainV4},
+              /*ignoreFailure=*/true);
+    runCommand("sudo", {"iptables", "-t", "mangle", "-F", chainV4}, /*ignoreFailure=*/true);
+    runCommand("sudo", {"iptables", "-t", "mangle", "-X", chainV4}, /*ignoreFailure=*/true);
+
+    runCommand("sudo", {"ip6tables", "-t", "mangle", "-D", "OUTPUT", "-j", chainV6},
+              /*ignoreFailure=*/true);
+    runCommand("sudo", {"ip6tables", "-t", "mangle", "-F", chainV6}, /*ignoreFailure=*/true);
+    runCommand("sudo", {"ip6tables", "-t", "mangle", "-X", chainV6}, /*ignoreFailure=*/true);
+
+    // Note: ipsetV4Name/ipsetV6Name themselves are destroyed by
+    // DynamicSplitResolver::stop(), not here — this method only owns the
+    // netfilter/routing side, not the ipsets it references. They're taken
+    // as parameters only for the log line below, for symmetry with setup.
+    qDebug().noquote() << "RouterLinux::teardownDynamicSplitRouting done, mark" << markHex
+                      << "table" << tableIdStr << "(ipsets" << ipsetV4Name << "/" << ipsetV6Name
+                      << "left to DynamicSplitResolver::stop())";
+    return true;
+}
+
 bool RouterLinux::StartRoutingIpv6()
 {
     QProcess process;
