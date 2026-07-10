@@ -27,6 +27,19 @@ public:
     static bool StopRoutingIpv6();
     static bool updateResolvers(const QString& ifname, const QList<QHostAddress>& resolvers);
     static bool restoreResolvers();
+
+    /**
+     * @brief startDynamicSplitTunneling / stopDynamicSplitTunneling -
+     * Linux-only for now (see RouterLinux::startDynamicSplitTunneling).
+     * Returns false unconditionally on macOS/Windows; callers must treat
+     * false the same way they treat DnsSplitStrategyDetector::Unknown on
+     * Linux — fall back to the static split-tunneling mechanism, no error
+     * surfaced to the user.
+     */
+    static bool startDynamicSplitTunneling(const QString &tunnelDevice,
+                                           const QStringList &splitDomains,
+                                           const QList<QHostAddress> &upstreamServers);
+    static bool stopDynamicSplitTunneling();
 };
 
 #endif // ROUTER_H

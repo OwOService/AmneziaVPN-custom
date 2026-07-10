@@ -17,6 +17,7 @@
 #include "router.h"
 #include "killswitch.h"
 #include "xray.h"
+#include "daemon/wireguardutils.h"
 
 #ifdef Q_OS_WIN
     #include "tapcontroller_win.h"
@@ -188,6 +189,31 @@ bool IpcServer::restoreResolvers()
 #endif
 
     return Router::restoreResolvers();
+}
+
+bool IpcServer::startDynamicSplitTunneling(const QStringList &splitDomains,
+                                           const QList<QHostAddress> &upstreamServers)
+{
+#ifdef MZ_DEBUG
+    qDebug() << "IpcServer::startDynamicSplitTunneling";
+#endif
+
+    // WG_INTERFACE ("amn0") rather than a client-supplied ifname: the
+    // client only ever has one tunnel device to name here, and keeping it
+    // out of the IPC surface avoids trusting a string from the
+    // (comparatively less privileged) GUI process for something that feeds
+    // straight into if_nametoindex() on the daemon side.
+    return Router::startDynamicSplitTunneling(QString::fromLatin1(WG_INTERFACE), splitDomains,
+                                              upstreamServers);
+}
+
+bool IpcServer::stopDynamicSplitTunneling()
+{
+#ifdef MZ_DEBUG
+    qDebug() << "IpcServer::stopDynamicSplitTunneling";
+#endif
+
+    return Router::stopDynamicSplitTunneling();
 }
 
 bool IpcServer::StartRoutingIpv6()

@@ -38,6 +38,13 @@ class IpcInterface
     SLOT( bool updateResolvers(const QString& ifname, const QList<QHostAddress>& resolvers) );
     SLOT( bool restoreResolvers() );
 
+    // Dynamic (DNS-driven) split tunneling — Linux only for now. Returns
+    // false if unavailable on this system (e.g. no usable systemd-resolved)
+    // or on any other platform; the caller falls back to the existing
+    // static site-list mechanism rather than treating false as an error.
+    SLOT( bool startDynamicSplitTunneling(const QStringList &splitDomains, const QList<QHostAddress> &upstreamServers) );
+    SLOT( bool stopDynamicSplitTunneling() );
+
     SLOT(bool xrayStart(const QString &config));
     SLOT(bool xrayStop());
 

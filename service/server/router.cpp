@@ -114,6 +114,30 @@ bool Router::restoreResolvers() {
 #endif
 }
 
+bool Router::startDynamicSplitTunneling(const QString &tunnelDevice,
+                                        const QStringList &splitDomains,
+                                        const QList<QHostAddress> &upstreamServers)
+{
+#ifdef Q_OS_LINUX
+    return RouterLinux::Instance().startDynamicSplitTunneling(tunnelDevice, splitDomains,
+                                                              upstreamServers);
+#else
+    Q_UNUSED(tunnelDevice);
+    Q_UNUSED(splitDomains);
+    Q_UNUSED(upstreamServers);
+    return false;  // not implemented yet on macOS/Windows
+#endif
+}
+
+bool Router::stopDynamicSplitTunneling()
+{
+#ifdef Q_OS_LINUX
+    return RouterLinux::Instance().stopDynamicSplitTunneling();
+#else
+    return false;
+#endif
+}
+
 bool Router::StopRoutingIpv6()
 {
 #ifdef Q_OS_WIN
