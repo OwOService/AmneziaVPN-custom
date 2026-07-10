@@ -24,6 +24,17 @@
 //     explicit port parameter, which is what lets our resolver bind to an
 //     arbitrary free port instead of fighting over :53 with whatever the
 //     user already has there (dnsmasq, Pi-hole, unbound, ...).
+//   - RouterLinux::startDynamicSplitTunneling() deliberately does NOT use
+//     SetLinkDNSEx even when it's available: it always binds via a
+//     dedicated loopback alias on :53 (see DynamicSplitResolver::
+//     dedicatedLoopbackAddress()) and plain SetLinkDNS instead. That one
+//     code path works against every systemd-resolved version, not just
+//     >= 249, so SystemdResolvedWithPort and SystemdResolvedLegacyPort53
+//     are currently treated identically by that caller — only whether
+//     resolved is active at all (i.e. not Unknown) actually matters. The
+//     distinction below is kept purely for lastDetectionDetails()
+//     diagnostics and as a hook for a possible future optimization that
+//     skips the alias when SetLinkDNSEx is available.
 //   - If systemd-resolved isn't running at all (masked/disabled — not a
 //     hypothetical: this is the actual state on at least one fork
 //     maintainer's daily-driver machine), there is currently NO fallback

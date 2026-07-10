@@ -9,6 +9,8 @@
 #include <QObject>
 
 #include "../client/platforms/linux/daemon/dnsutilslinux.h"
+#include "../client/platforms/linux/daemon/dnssplitstrategydetector.h"
+#include "dynamicsplitresolver.h"
 
 /**
  * @brief The Router class - General class for handling ip routing
@@ -55,6 +57,28 @@ public:
                                   const QString &ipsetV6Name, quint32 fwmark, int tableId);
     bool teardownDynamicSplitRouting(const QString &ipsetV4Name, const QString &ipsetV6Name,
                                      quint32 fwmark, int tableId);
+
+    /**
+     * @brief startDynamicSplitTunneling - top-level entry point for dynamic
+     * (DNS-driven) split tunneling, orchestrating the full chain:
+     * DnsSplitStrategyDetector::detect() -> DynamicSplitResolver::start()
+     * -> DnsUtilsLinux::updateSplitResolvers() -> setupDynamicSplitRouting().
+     * Always uses DynamicSplitResolver::dedicatedLoopbackAddress() and
+     * plain SetLinkDNS (useExplicitPort=false) — see the class comment on
+     * that address for why: it works on any systemd-resolved version, not
+     * just >= 249, which covers the overwhelming majority of callers rather
+     * than requiring SetLinkDNSEx support.
+     * Returns false if systemd-resolved isn't active at all (detect() ==
+     * Unknown) or if any stage fails to start; callers should treat false
+     * as "fall back to the static split-tunneling mechanism", not as an
+     * error to surface to the user — this is an opportunistic upgrade.
+     * splitDomains are pushed to resolved as route-only domains, which
+     * matches the domain itself and all of its subdomains, so callers no
+     * longer need to enumerate individual subdomains by hand.
+     */
+    bool startDynamicSplitTunneling(const QString &tunnelDevice, const QStringList &splitDomains,
+                                    const QList<QHostAddress> &upstreamServers);
+    bool stopDynamicSplitTunneling();
 public slots:
 
 private:
@@ -65,6 +89,8 @@ private:
     bool isServiceActive(const QString &serviceName);
     QList<Route> m_addedRoutes;
     DnsUtilsLinux *m_dnsUtil;
+    bool m_dynamicSplitTunnelingActive = false;
+    QString m_dynamicSplitTunnelDevice;
 };
 
 #endif // ROUTERLINUX_H

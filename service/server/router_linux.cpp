@@ -411,6 +411,98 @@ bool RouterLinux::teardownDynamicSplitRouting(const QString &ipsetV4Name,
     return true;
 }
 
+namespace {
+// Verified live against real traffic in the fork session report (ip -6
+// route get ... mark 0x4001 / table 200). Doesn't collide with the
+// existing cgroup-based app split tunneling, which uses fwmark 0x3211
+// (see kPacketTag in linuxfirewall.cpp) and an rt_tables-named table
+// rather than a bare numeric id.
+constexpr quint32 kDynSplitFwmark = 0x4001;
+constexpr int kDynSplitTableId = 200;
+const QString kDynSplitIpsetV4 = QStringLiteral("amn-split4");
+const QString kDynSplitIpsetV6 = QStringLiteral("amn-split6");
+}  // namespace
+
+bool RouterLinux::startDynamicSplitTunneling(const QString &tunnelDevice,
+                                             const QStringList &splitDomains,
+                                             const QList<QHostAddress> &upstreamServers)
+{
+    // Never leave two dynamic sessions layered on top of each other — a
+    // reconnect with a changed site list must tear down cleanly first, the
+    // same "stop before start" discipline DynamicSplitResolver::start()
+    // already applies to itself.
+    if (m_dynamicSplitTunnelingActive) {
+        stopDynamicSplitTunneling();
+    }
+
+    DnsSplitStrategyDetector detector;
+    if (detector.detect() == DnsSplitStrategyDetector::Strategy::Unknown) {
+        qDebug().noquote() << "RouterLinux::startDynamicSplitTunneling: no usable "
+                              "systemd-resolved found, caller should fall back to static "
+                              "split tunneling";
+        return false;
+    }
+
+    QStringList upstreamStrings;
+    for (const QHostAddress &addr : upstreamServers) {
+        upstreamStrings << addr.toString();
+    }
+
+    const QHostAddress resolverAddress = DynamicSplitResolver::dedicatedLoopbackAddress();
+    constexpr quint16 resolverPort = 53;
+
+    if (!DynamicSplitResolver::Instance().start(resolverAddress, resolverPort, splitDomains,
+                                                upstreamStrings, kDynSplitIpsetV4,
+                                                kDynSplitIpsetV6)) {
+        return false;
+    }
+
+    // Plain SetLinkDNS (useExplicitPort=false): works against any
+    // systemd-resolved version, not just >= 249 — see
+    // DynamicSplitResolver::dedicatedLoopbackAddress() for why that's the
+    // whole point of always using this address. splitDomains are pushed as
+    // route-only domains, which systemd-resolved matches against the
+    // domain itself and all of its subdomains — no manual subdomain
+    // enumeration required on the caller's side.
+    if (!m_dnsUtil->updateSplitResolvers(tunnelDevice, resolverAddress, resolverPort,
+                                         splitDomains, /*useExplicitPort=*/false)) {
+        DynamicSplitResolver::Instance().stop();
+        return false;
+    }
+
+    if (!setupDynamicSplitRouting(tunnelDevice, kDynSplitIpsetV4, kDynSplitIpsetV6,
+                                  kDynSplitFwmark, kDynSplitTableId)) {
+        m_dnsUtil->restoreSplitResolvers(tunnelDevice);
+        DynamicSplitResolver::Instance().stop();
+        return false;
+    }
+
+    m_dynamicSplitTunnelingActive = true;
+    m_dynamicSplitTunnelDevice = tunnelDevice;
+    qDebug().noquote() << "RouterLinux::startDynamicSplitTunneling: active for"
+                      << splitDomains.size() << "domain(s) via" << tunnelDevice;
+    return true;
+}
+
+bool RouterLinux::stopDynamicSplitTunneling()
+{
+    if (!m_dynamicSplitTunnelingActive) {
+        return true;  // nothing to do
+    }
+
+    // Best-effort, same as teardownDynamicSplitRouting()'s own internals:
+    // every step runs regardless of whether an earlier one reports failure,
+    // so a partial prior failure never leaves the rest of the chain stuck.
+    teardownDynamicSplitRouting(kDynSplitIpsetV4, kDynSplitIpsetV6, kDynSplitFwmark,
+                               kDynSplitTableId);
+    m_dnsUtil->restoreSplitResolvers(m_dynamicSplitTunnelDevice);
+    DynamicSplitResolver::Instance().stop();
+
+    m_dynamicSplitTunnelingActive = false;
+    m_dynamicSplitTunnelDevice.clear();
+    return true;
+}
+
 bool RouterLinux::StartRoutingIpv6()
 {
     QProcess process;
