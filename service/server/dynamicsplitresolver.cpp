@@ -36,7 +36,57 @@ bool isPlausibleIpsetName(const QString &name) {
     static const QRegularExpression validName(QStringLiteral("^[a-zA-Z0-9_-]{1,31}$"));
     return validName.match(name).hasMatch();
 }
+
+// Arbitrary address inside 127.0.0.0/8, deliberately not 127.0.0.1 — see
+// DynamicSplitResolver::dedicatedLoopbackAddress(). "66.53" has no special
+// meaning, it's just memorable (matches nothing else on the system).
+const QString kDedicatedLoopbackAddress = QStringLiteral("127.66.53.1");
+const QString kLoopbackAliasLabel = QStringLiteral("lo:amnsplit");
 }  // namespace
+
+QHostAddress DynamicSplitResolver::dedicatedLoopbackAddress()
+{
+    return QHostAddress(kDedicatedLoopbackAddress);
+}
+
+bool DynamicSplitResolver::ensureLoopbackAlias()
+{
+    if (m_loopbackAliasUp) {
+        return true;  // already set up by us this run
+    }
+
+    // "ip addr replace" rather than "add": idempotent even if a previous
+    // unclean shutdown left the alias in place, unlike "add" which would
+    // fail with "File exists".
+    QProcess process;
+    process.start(QStringLiteral("sudo"),
+                  {QStringLiteral("ip"), QStringLiteral("addr"), QStringLiteral("replace"),
+                   kDedicatedLoopbackAddress + QStringLiteral("/8"), QStringLiteral("dev"),
+                   QStringLiteral("lo"), QStringLiteral("label"), kLoopbackAliasLabel});
+    if (!process.waitForStarted(1000) || !process.waitForFinished(2000) ||
+        process.exitCode() != 0) {
+        qDebug().noquote() << "DynamicSplitResolver: failed to add loopback alias"
+                          << kDedicatedLoopbackAddress << process.readAllStandardError();
+        return false;
+    }
+
+    m_loopbackAliasUp = true;
+    return true;
+}
+
+bool DynamicSplitResolver::releaseLoopbackAlias()
+{
+    if (!m_loopbackAliasUp) {
+        return true;  // nothing we added
+    }
+
+    QProcess::execute(QStringLiteral("sudo"),
+                      {QStringLiteral("ip"), QStringLiteral("addr"), QStringLiteral("del"),
+                       kDedicatedLoopbackAddress + QStringLiteral("/8"), QStringLiteral("dev"),
+                       QStringLiteral("lo"), QStringLiteral("label"), kLoopbackAliasLabel});
+    m_loopbackAliasUp = false;
+    return true;
+}
 
 DynamicSplitResolver& DynamicSplitResolver::Instance()
 {
@@ -175,11 +225,20 @@ bool DynamicSplitResolver::start(const QHostAddress &listenAddress, quint16 list
 
     QDir().mkpath(kConfigDir);
 
+    // Only the dedicated alias needs explicit setup — an arbitrary caller-
+    // supplied listenAddress (e.g. a test using 127.0.0.1 directly) is
+    // assumed to already be reachable and is left alone.
+    if (listenAddress == dedicatedLoopbackAddress() && !ensureLoopbackAlias()) {
+        return false;
+    }
+
     if (!createIpset(ipsetV4Name, false)) {
+        releaseLoopbackAlias();
         return false;
     }
     if (!createIpset(ipsetV6Name, true)) {
         destroyIpset(ipsetV4Name);
+        releaseLoopbackAlias();
         return false;
     }
 
@@ -188,6 +247,7 @@ bool DynamicSplitResolver::start(const QHostAddress &listenAddress, quint16 list
                             upstreamServers, ipsetV4Name, ipsetV6Name)) {
         destroyIpset(ipsetV4Name);
         destroyIpset(ipsetV6Name);
+        releaseLoopbackAlias();
         return false;
     }
 
@@ -204,6 +264,7 @@ bool DynamicSplitResolver::start(const QHostAddress &listenAddress, quint16 list
         m_dnsmasqProcess = nullptr;
         destroyIpset(ipsetV4Name);
         destroyIpset(ipsetV6Name);
+        releaseLoopbackAlias();
         return false;
     }
 
@@ -221,6 +282,7 @@ bool DynamicSplitResolver::start(const QHostAddress &listenAddress, quint16 list
         m_dnsmasqProcess = nullptr;
         destroyIpset(ipsetV4Name);
         destroyIpset(ipsetV6Name);
+        releaseLoopbackAlias();
         return false;
     }
 
@@ -266,6 +328,8 @@ bool DynamicSplitResolver::stop()
         QFile::remove(m_configPath);
         m_configPath.clear();
     }
+
+    releaseLoopbackAlias();
 
     return true;
 }

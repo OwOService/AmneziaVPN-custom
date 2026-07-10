@@ -80,10 +80,29 @@ public:
 
     bool isRunning() const;
 
+    /**
+     * @brief dedicatedLoopbackAddress - the loopback alias this class
+     * always binds its dnsmasq instance to, on port 53. Fixed rather than
+     * caller-supplied: this is what lets callers use plain SetLinkDNS
+     * (DnsUtilsLinux::updateSplitResolvers with useExplicitPort=false)
+     * unconditionally, without needing SetLinkDNSEx (systemd >= 249) or any
+     * free-port probing — SetLinkDNS always dials :53 on the address it's
+     * given, so that address just needs to be ours alone. 127.0.0.0/8 is
+     * entirely loopback per RFC 3330, so any address in it beyond
+     * 127.0.0.1 is fair game and won't collide with whatever the user
+     * already has bound to 127.0.0.1:53 (their own dnsmasq, systemd-
+     * resolved's stub listener, Pi-hole, etc — see the fork session
+     * report's DNS-environment survey).
+     */
+    static QHostAddress dedicatedLoopbackAddress();
+
 private:
     DynamicSplitResolver() = default;
     ~DynamicSplitResolver();
     Q_DISABLE_COPY(DynamicSplitResolver)
+
+    bool ensureLoopbackAlias();
+    bool releaseLoopbackAlias();
 
     bool createIpset(const QString &name, bool isIpv6);
     bool destroyIpset(const QString &name);
@@ -96,6 +115,7 @@ private:
     QString m_configPath;
     QString m_ipsetV4Name;
     QString m_ipsetV6Name;
+    bool m_loopbackAliasUp = false;
 };
 
 #endif // DYNAMICSPLITRESOLVER_H
