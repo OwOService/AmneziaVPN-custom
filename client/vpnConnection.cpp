@@ -143,8 +143,50 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
                         iface->routeDeleteList(m_vpnProtocol->vpnGateway(), QStringList() << "0.0.0.0");
                         RouteMode routeMode = m_appSettingsRepository->routeMode();
                         if (routeMode == amnezia::RouteMode::VpnOnlyForwardSites) {
-                            QTimer::singleShot(1000, m_vpnProtocol.data(),
-                                               [this, routeMode]() { addSitesRoutes(m_vpnProtocol->vpnGateway(), routeMode); });
+                            const QVariantMap &sites = m_appSettingsRepository->vpnSites(routeMode);
+                            QStringList splitDomains;
+                            QStringList literalIps;
+                            for (auto i = sites.constBegin(); i != sites.constEnd(); ++i) {
+                                if (NetworkUtilities::checkIpSubnetFormat(i.key())) {
+                                    literalIps.append(i.key());
+                                } else {
+                                    splitDomains.append(i.key());
+                                }
+                            }
+
+                            bool dynamicStarted = false;
+                            if (!splitDomains.isEmpty()) {
+                                QList<QHostAddress> upstreamServers;
+                                if (!dns1.isEmpty()) upstreamServers.append(QHostAddress(dns1));
+                                if (!dns2.isEmpty()) upstreamServers.append(QHostAddress(dns2));
+                                if (upstreamServers.isEmpty()) {
+                                    // Same fallback resolver Amnezia already defaults to
+                                    // elsewhere when a server doesn't supply its own DNS.
+                                    upstreamServers.append(QHostAddress(QStringLiteral("1.1.1.1")));
+                                }
+
+                                auto dynReply = iface->startDynamicSplitTunneling(splitDomains, upstreamServers);
+                                dynamicStarted = dynReply.waitForFinished() && dynReply.returnValue();
+                            }
+
+                            if (dynamicStarted) {
+                                qDebug() << "VpnConnection::onConnectionStateChanged: dynamic split "
+                                            "tunneling active for" << splitDomains.size() << "domain(s), "
+                                            "subdomains included automatically";
+                                // The dynamic mechanism only intercepts domain lookups —
+                                // literal IPs/subnets the user entered directly still need
+                                // an explicit static route, same as before.
+                                if (!literalIps.isEmpty()) {
+                                    iface->routeAddList(m_vpnProtocol->vpnGateway(), literalIps);
+                                }
+                            } else {
+                                // No usable systemd-resolved (Strategy::Unknown), IPC call
+                                // failed, or there was nothing but literal IPs to begin
+                                // with — fall back to the existing resolve-once mechanism
+                                // exactly as before this patch.
+                                QTimer::singleShot(1000, m_vpnProtocol.data(),
+                                                   [this, routeMode]() { addSitesRoutes(m_vpnProtocol->vpnGateway(), routeMode); });
+                            }
                         } else if (routeMode == amnezia::RouteMode::VpnAllExceptSites) {
                             iface->routeAddList(m_vpnProtocol->vpnGateway(), QStringList() << "0.0.0.0/1");
                             iface->routeAddList(m_vpnProtocol->vpnGateway(), QStringList() << "128.0.0.0/1");
@@ -160,6 +202,12 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
             } break;
             case Vpn::ConnectionState::Disconnected:
             case Vpn::ConnectionState::Error: {
+                // Safe to call even if dynamic split tunneling was never
+                // started this session — RouterLinux::stopDynamicSplitTunneling()
+                // no-ops when its internal active flag isn't set.
+                auto stopDynamic = iface->stopDynamicSplitTunneling();
+                stopDynamic.waitForFinished();
+
                 auto flushDns = iface->flushDns();
                 if (flushDns.waitForFinished() && flushDns.returnValue())
                     qDebug() << "VpnConnection::onConnectionStateChanged: Successfully flushed DNS";
