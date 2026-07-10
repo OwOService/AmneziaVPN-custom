@@ -70,6 +70,12 @@ void IpSplitTunnelingUiController::toggleSplitTunneling(bool enabled)
     emit isSplitTunnelingEnabledChanged();
 }
 
+void IpSplitTunnelingUiController::toggleDynamicSplitTunneling(bool enabled)
+{
+    m_ipSplitTunnelingController->toggleDynamicSplitTunneling(enabled);
+    emit isDynamicSplitTunnelingEnabledChanged();
+}
+
 void IpSplitTunnelingUiController::setRouteMode(int routeMode)
 {
     m_ipSplitTunnelingController->setRouteMode(static_cast<amnezia::RouteMode>(routeMode));
@@ -84,6 +90,11 @@ int IpSplitTunnelingUiController::getRouteMode() const
 bool IpSplitTunnelingUiController::isSplitTunnelingEnabled() const
 {
     return m_ipSplitTunnelingController->isSplitTunnelingEnabled();
+}
+
+bool IpSplitTunnelingUiController::isDynamicSplitTunnelingEnabled() const
+{
+    return m_ipSplitTunnelingController->isDynamicSplitTunnelingEnabled();
 }
 
 void IpSplitTunnelingUiController::updateModel()

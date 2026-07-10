@@ -18,6 +18,9 @@ public:
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY connectionStateChanged)
     Q_PROPERTY(bool isConnectionInProgress READ isConnectionInProgress NOTIFY connectionStateChanged)
     Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
+    // See VpnConnection::DynamicSplitTunnelingStatus: 0=Off, 1=Active, 2=Error.
+    Q_PROPERTY(int dynamicSplitTunnelingStatus READ dynamicSplitTunnelingStatus NOTIFY dynamicSplitTunnelingStatusChanged)
+    Q_PROPERTY(QString dynamicSplitTunnelingErrorMessage READ dynamicSplitTunnelingErrorMessage NOTIFY dynamicSplitTunnelingStatusChanged)
 
     explicit ConnectionUiController(ConnectionController* connectionController,
                                     ServersController* serversController,
@@ -28,6 +31,8 @@ public:
     bool isConnected() const;
     bool isConnectionInProgress() const;
     QString connectionStateText() const;
+    int dynamicSplitTunnelingStatus() const;
+    QString dynamicSplitTunnelingErrorMessage() const;
 
 public slots:
     void toggleConnection();
@@ -44,6 +49,7 @@ public slots:
 
 signals:
     void connectionStateChanged();
+    void dynamicSplitTunnelingStatusChanged();
 
     void connectionErrorOccurred(ErrorCode errorCode);
     void connectionErrorOccurredWithDetail(ErrorCode errorCode, const QString &detail);

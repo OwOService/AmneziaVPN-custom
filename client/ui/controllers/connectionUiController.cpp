@@ -19,6 +19,7 @@ ConnectionUiController::ConnectionUiController(ConnectionController* connectionC
       m_serversController(serversController)
 {
     connect(m_connectionController, &ConnectionController::connectionStateChanged, this, &ConnectionUiController::onConnectionStateChanged);
+    connect(m_connectionController, &ConnectionController::dynamicSplitTunnelingStatusChanged, this, &ConnectionUiController::dynamicSplitTunnelingStatusChanged);
 
     connect(this, &ConnectionUiController::connectButtonClicked, this, &ConnectionUiController::toggleConnection, Qt::QueuedConnection);
 
@@ -176,6 +177,16 @@ bool ConnectionUiController::isConnectionInProgress() const
 bool ConnectionUiController::isConnected() const
 {
     return m_isConnected;
+}
+
+int ConnectionUiController::dynamicSplitTunnelingStatus() const
+{
+    return m_connectionController->dynamicSplitTunnelingStatus();
+}
+
+QString ConnectionUiController::dynamicSplitTunnelingErrorMessage() const
+{
+    return m_connectionController->dynamicSplitTunnelingErrorMessage();
 }
 
 bool ConnectionUiController::isRevokeBlockedDuringActiveConnection(const QString &serverId, int containerIndex,
