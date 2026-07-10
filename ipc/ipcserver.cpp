@@ -216,6 +216,11 @@ bool IpcServer::stopDynamicSplitTunneling()
     return Router::stopDynamicSplitTunneling();
 }
 
+QString IpcServer::dynamicSplitTunnelingLastError()
+{
+    return Router::dynamicSplitTunnelingLastError();
+}
+
 bool IpcServer::StartRoutingIpv6()
 {
 #ifdef MZ_DEBUG

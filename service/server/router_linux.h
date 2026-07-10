@@ -79,6 +79,14 @@ public:
     bool startDynamicSplitTunneling(const QString &tunnelDevice, const QStringList &splitDomains,
                                     const QList<QHostAddress> &upstreamServers);
     bool stopDynamicSplitTunneling();
+
+    /**
+     * @brief dynamicSplitTunnelingLastError - human-readable reason the most
+     * recent startDynamicSplitTunneling() call failed, meant to be shown
+     * to the user (e.g. "systemd-resolved недоступен: ..."). Empty string
+     * if the last call succeeded or none has been made yet.
+     */
+    QString dynamicSplitTunnelingLastError() const { return m_dynamicSplitTunnelingLastError; }
 public slots:
 
 private:
@@ -91,6 +99,7 @@ private:
     DnsUtilsLinux *m_dnsUtil;
     bool m_dynamicSplitTunnelingActive = false;
     QString m_dynamicSplitTunnelDevice;
+    QString m_dynamicSplitTunnelingLastError;
 };
 
 #endif // ROUTERLINUX_H

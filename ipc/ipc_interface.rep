@@ -44,6 +44,7 @@ class IpcInterface
     // static site-list mechanism rather than treating false as an error.
     SLOT( bool startDynamicSplitTunneling(const QStringList &splitDomains, const QList<QHostAddress> &upstreamServers) );
     SLOT( bool stopDynamicSplitTunneling() );
+    SLOT( QString dynamicSplitTunnelingLastError() );
 
     SLOT(bool xrayStart(const QString &config));
     SLOT(bool xrayStop());

@@ -437,6 +437,7 @@ bool RouterLinux::startDynamicSplitTunneling(const QString &tunnelDevice,
 
     DnsSplitStrategyDetector detector;
     if (detector.detect() == DnsSplitStrategyDetector::Strategy::Unknown) {
+        m_dynamicSplitTunnelingLastError = detector.lastDetectionDetails();
         qDebug().noquote() << "RouterLinux::startDynamicSplitTunneling: no usable "
                               "systemd-resolved found, caller should fall back to static "
                               "split tunneling";
@@ -454,6 +455,9 @@ bool RouterLinux::startDynamicSplitTunneling(const QString &tunnelDevice,
     if (!DynamicSplitResolver::Instance().start(resolverAddress, resolverPort, splitDomains,
                                                 upstreamStrings, kDynSplitIpsetV4,
                                                 kDynSplitIpsetV6)) {
+        m_dynamicSplitTunnelingLastError =
+            QStringLiteral("не удалось запустить локальный DNS-резолвер (dnsmasq/ipset) — "
+                          "см. лог демона");
         return false;
     }
 
@@ -466,17 +470,22 @@ bool RouterLinux::startDynamicSplitTunneling(const QString &tunnelDevice,
     // enumeration required on the caller's side.
     if (!m_dnsUtil->updateSplitResolvers(tunnelDevice, resolverAddress, resolverPort,
                                          splitDomains, /*useExplicitPort=*/false)) {
+        m_dynamicSplitTunnelingLastError =
+            QStringLiteral("не удалось настроить маршрутизацию DNS через systemd-resolved");
         DynamicSplitResolver::Instance().stop();
         return false;
     }
 
     if (!setupDynamicSplitRouting(tunnelDevice, kDynSplitIpsetV4, kDynSplitIpsetV6,
                                   kDynSplitFwmark, kDynSplitTableId)) {
+        m_dynamicSplitTunnelingLastError =
+            QStringLiteral("не удалось настроить перенаправление трафика (iptables/ipset)");
         m_dnsUtil->restoreSplitResolvers(tunnelDevice);
         DynamicSplitResolver::Instance().stop();
         return false;
     }
 
+    m_dynamicSplitTunnelingLastError.clear();
     m_dynamicSplitTunnelingActive = true;
     m_dynamicSplitTunnelDevice = tunnelDevice;
     qDebug().noquote() << "RouterLinux::startDynamicSplitTunneling: active for"

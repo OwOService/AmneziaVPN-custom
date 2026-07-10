@@ -138,6 +138,15 @@ bool Router::stopDynamicSplitTunneling()
 #endif
 }
 
+QString Router::dynamicSplitTunnelingLastError()
+{
+#ifdef Q_OS_LINUX
+    return RouterLinux::Instance().dynamicSplitTunnelingLastError();
+#else
+    return QString();
+#endif
+}
+
 bool Router::StopRoutingIpv6()
 {
 #ifdef Q_OS_WIN

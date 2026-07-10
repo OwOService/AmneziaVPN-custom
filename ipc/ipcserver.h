@@ -46,6 +46,7 @@ public:
     virtual bool startDynamicSplitTunneling(const QStringList &splitDomains,
                                             const QList<QHostAddress> &upstreamServers) override;
     virtual bool stopDynamicSplitTunneling() override;
+    virtual QString dynamicSplitTunnelingLastError() override;
     virtual bool xrayStart(const QString& cfg) override;
     virtual bool xrayStop() override;
     virtual bool startNetworkCheck(const QString& serverIpv4Gateway, const QString& deviceIpv4Address) override;

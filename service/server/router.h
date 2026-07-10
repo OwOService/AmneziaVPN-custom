@@ -40,6 +40,7 @@ public:
                                            const QStringList &splitDomains,
                                            const QList<QHostAddress> &upstreamServers);
     static bool stopDynamicSplitTunneling();
+    static QString dynamicSplitTunnelingLastError();
 };
 
 #endif // ROUTER_H
