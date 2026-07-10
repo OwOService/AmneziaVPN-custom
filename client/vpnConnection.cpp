@@ -155,7 +155,11 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
                             }
 
                             bool dynamicStarted = false;
-                            if (!splitDomains.isEmpty()) {
+                            const bool dynamicAllowed =
+                                m_appSettingsRepository->isDynamicSplitTunnelingEnabled() &&
+                                !splitDomains.isEmpty();
+
+                            if (dynamicAllowed) {
                                 QList<QHostAddress> upstreamServers;
                                 if (!dns1.isEmpty()) upstreamServers.append(QHostAddress(dns1));
                                 if (!dns2.isEmpty()) upstreamServers.append(QHostAddress(dns2));
@@ -173,6 +177,8 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
                                 qDebug() << "VpnConnection::onConnectionStateChanged: dynamic split "
                                             "tunneling active for" << splitDomains.size() << "domain(s), "
                                             "subdomains included automatically";
+                                m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Active;
+                                m_dynamicSplitTunnelingErrorMessage.clear();
                                 // The dynamic mechanism only intercepts domain lookups —
                                 // literal IPs/subnets the user entered directly still need
                                 // an explicit static route, same as before.
@@ -180,14 +186,38 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
                                     iface->routeAddList(m_vpnProtocol->vpnGateway(), literalIps);
                                 }
                             } else {
+                                // Distinguish "user turned it off / nothing to route
+                                // dynamically" (Off, no error worth showing) from "we
+                                // actually tried and it failed" (Error, with a reason) —
+                                // this is exactly what the split-tunneling settings page
+                                // status line needs to tell apart.
+                                if (dynamicAllowed) {
+                                    auto errReply = iface->dynamicSplitTunnelingLastError();
+                                    errReply.waitForFinished();
+                                    m_dynamicSplitTunnelingErrorMessage = errReply.returnValue();
+                                    m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Error;
+                                } else {
+                                    m_dynamicSplitTunnelingErrorMessage.clear();
+                                    m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Off;
+                                }
                                 // No usable systemd-resolved (Strategy::Unknown), IPC call
-                                // failed, or there was nothing but literal IPs to begin
-                                // with — fall back to the existing resolve-once mechanism
-                                // exactly as before this patch.
+                                // failed, feature disabled by the user, or there was
+                                // nothing but literal IPs to begin with — fall back to the
+                                // existing resolve-once mechanism exactly as before this
+                                // patch either way.
                                 QTimer::singleShot(1000, m_vpnProtocol.data(),
                                                    [this, routeMode]() { addSitesRoutes(m_vpnProtocol->vpnGateway(), routeMode); });
                             }
+                            emit dynamicSplitTunnelingStatusChanged();
                         } else if (routeMode == amnezia::RouteMode::VpnAllExceptSites) {
+                            // Dynamic split tunneling only applies to VpnOnlyForwardSites —
+                            // VpnAllExceptSites routes everything except the listed sites,
+                            // the exact opposite of what the ipset+fwmark mechanism marks
+                            // for inclusion. Nothing dynamic runs here.
+                            m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Off;
+                            m_dynamicSplitTunnelingErrorMessage.clear();
+                            emit dynamicSplitTunnelingStatusChanged();
+
                             iface->routeAddList(m_vpnProtocol->vpnGateway(), QStringList() << "0.0.0.0/1");
                             iface->routeAddList(m_vpnProtocol->vpnGateway(), QStringList() << "128.0.0.0/1");
 
@@ -197,6 +227,10 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
 #endif
                             addSitesRoutes(m_vpnProtocol->routeGateway(), routeMode);
                         }
+                    } else {
+                        m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Off;
+                        m_dynamicSplitTunnelingErrorMessage.clear();
+                        emit dynamicSplitTunnelingStatusChanged();
                     }
                 }
             } break;
@@ -207,6 +241,9 @@ void VpnConnection::onConnectionStateChanged(Vpn::ConnectionState state)
                 // no-ops when its internal active flag isn't set.
                 auto stopDynamic = iface->stopDynamicSplitTunneling();
                 stopDynamic.waitForFinished();
+                m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Off;
+                m_dynamicSplitTunnelingErrorMessage.clear();
+                emit dynamicSplitTunnelingStatusChanged();
 
                 auto flushDns = iface->flushDns();
                 if (flushDns.waitForFinished() && flushDns.returnValue())

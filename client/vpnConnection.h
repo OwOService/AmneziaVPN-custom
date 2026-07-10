@@ -66,6 +66,17 @@ signals:
 
     void serviceIsNotReady();
 
+    // Off: disabled by the user, not applicable (wrong route mode / no
+    // domains configured), or not connected. Active: currently running.
+    // Error: was attempted and failed — dynamicSplitTunnelingErrorMessage()
+    // has the reason.
+    void dynamicSplitTunnelingStatusChanged();
+
+public:
+    enum class DynamicSplitTunnelingStatus { Off, Active, Error };
+    DynamicSplitTunnelingStatus dynamicSplitTunnelingStatus() const { return m_dynamicSplitTunnelingStatus; }
+    QString dynamicSplitTunnelingErrorMessage() const { return m_dynamicSplitTunnelingErrorMessage; }
+
 protected slots:
     void onBytesChanged(quint64 receivedBytes, quint64 sentBytes);
     void onConnectionStateChanged(Vpn::ConnectionState state);
@@ -76,6 +87,9 @@ protected:
 private:
     SecureServersRepository* m_serversRepository;
     SecureAppSettingsRepository* m_appSettingsRepository;
+
+    DynamicSplitTunnelingStatus m_dynamicSplitTunnelingStatus = DynamicSplitTunnelingStatus::Off;
+    QString m_dynamicSplitTunnelingErrorMessage;
 
     QJsonObject m_vpnConfiguration;
     QJsonObject m_routeMode;

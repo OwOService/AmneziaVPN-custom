@@ -53,6 +53,12 @@ public:
     bool isConnected() const;
     void setConnectionState(Vpn::ConnectionState state);
 
+    // Pass-through to VpnConnection's runtime status — see
+    // VpnConnection::DynamicSplitTunnelingStatus for what the int values
+    // mean (Off=0, Active=1, Error=2).
+    int dynamicSplitTunnelingStatus() const;
+    QString dynamicSplitTunnelingErrorMessage() const;
+
     QJsonObject createConnectionConfiguration(const QPair<QString, QString> &dns,
                                              bool isApiConfig,
                                              const QString &hostName,
@@ -67,6 +73,7 @@ public:
 
 signals:
     void connectionStateChanged(Vpn::ConnectionState state);
+    void dynamicSplitTunnelingStatusChanged();
     void openConnectionRequested(const QString &serverId, DockerContainer container, const QJsonObject &vpnConfiguration);
     void closeConnectionRequested();
     void setConnectionStateRequested(Vpn::ConnectionState state);

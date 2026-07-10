@@ -45,6 +45,14 @@ public:
     QVariantMap vpnSites(RouteMode mode) const;
     bool isSitesSplitTunnelingEnabled() const;
     void setSitesSplitTunnelingEnabled(bool enabled);
+    // Opt-out for the DNS-driven dynamic split tunneling mechanism (see
+    // RouterLinux::startDynamicSplitTunneling) — on by default, since it's
+    // a strict opportunistic upgrade over the static site list with an
+    // automatic fallback when unavailable. Only relevant when
+    // isSitesSplitTunnelingEnabled() and routeMode() == VpnOnlyForwardSites;
+    // ignored otherwise.
+    bool isDynamicSplitTunnelingEnabled() const;
+    void setDynamicSplitTunnelingEnabled(bool enabled);
 
     AppsRouteMode appsRouteMode() const;
     void setAppsRouteMode(AppsRouteMode mode);
@@ -105,6 +113,7 @@ signals:
     void routeModeChanged(RouteMode mode);
     void appsRouteModeChanged(AppsRouteMode mode);
     void sitesSplitTunnelingEnabledChanged(bool enabled);
+    void dynamicSplitTunnelingEnabledChanged(bool enabled);
     void appsSplitTunnelingEnabledChanged(bool enabled);
     void useAmneziaDnsChanged(bool enabled);
     void saveLogsChanged(bool enabled);

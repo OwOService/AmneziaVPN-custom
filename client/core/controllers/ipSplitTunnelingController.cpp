@@ -114,6 +114,11 @@ void IpSplitTunnelingController::toggleSplitTunneling(bool enabled)
     m_appSettingsRepository->setSitesSplitTunnelingEnabled(enabled);
 }
 
+void IpSplitTunnelingController::toggleDynamicSplitTunneling(bool enabled)
+{
+    m_appSettingsRepository->setDynamicSplitTunnelingEnabled(enabled);
+}
+
 RouteMode IpSplitTunnelingController::getRouteMode() const
 {
     return m_currentRouteMode;
@@ -122,6 +127,11 @@ RouteMode IpSplitTunnelingController::getRouteMode() const
 bool IpSplitTunnelingController::isSplitTunnelingEnabled() const
 {
     return m_appSettingsRepository->isSitesSplitTunnelingEnabled();
+}
+
+bool IpSplitTunnelingController::isDynamicSplitTunnelingEnabled() const
+{
+    return m_appSettingsRepository->isDynamicSplitTunnelingEnabled();
 }
 
 QVector<QPair<QString, QString>> IpSplitTunnelingController::getCurrentSites() const

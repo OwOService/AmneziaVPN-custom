@@ -182,6 +182,17 @@ void SecureAppSettingsRepository::setSitesSplitTunnelingEnabled(bool enabled)
     emit sitesSplitTunnelingEnabledChanged(enabled);
 }
 
+bool SecureAppSettingsRepository::isDynamicSplitTunnelingEnabled() const
+{
+    return value("Conf/dynamicSplitTunnelingEnabled", true).toBool();
+}
+
+void SecureAppSettingsRepository::setDynamicSplitTunnelingEnabled(bool enabled)
+{
+    setValue("Conf/dynamicSplitTunnelingEnabled", enabled);
+    emit dynamicSplitTunnelingEnabledChanged(enabled);
+}
+
 namespace {
     QString appsRouteModeString(AppsRouteMode mode) {
         switch (mode) {

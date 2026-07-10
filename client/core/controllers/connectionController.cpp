@@ -39,6 +39,7 @@ ConnectionController::ConnectionController(SecureServersRepository* serversRepos
       m_vpnConnection(vpnConnection)
 {
     connect(m_vpnConnection, &VpnConnection::connectionStateChanged, this, &ConnectionController::connectionStateChanged);
+    connect(m_vpnConnection, &VpnConnection::dynamicSplitTunnelingStatusChanged, this, &ConnectionController::dynamicSplitTunnelingStatusChanged);
     connect(m_vpnConnection, &VpnConnection::vpnProtocolError, this, [this](amnezia::ErrorCode) {
         cacheLastErrorDetail();
     });
@@ -61,6 +62,16 @@ void ConnectionController::setConnectionState(Vpn::ConnectionState state)
     if (m_vpnConnection) {
         emit setConnectionStateRequested(state);
     }
+}
+
+int ConnectionController::dynamicSplitTunnelingStatus() const
+{
+    return m_vpnConnection ? static_cast<int>(m_vpnConnection->dynamicSplitTunnelingStatus()) : 0;
+}
+
+QString ConnectionController::dynamicSplitTunnelingErrorMessage() const
+{
+    return m_vpnConnection ? m_vpnConnection->dynamicSplitTunnelingErrorMessage() : QString();
 }
 
 ErrorCode ConnectionController::defaultContainerForServer(const QString &serverId, DockerContainer &container) const

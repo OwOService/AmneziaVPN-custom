@@ -30,9 +30,11 @@ public:
     void removeSites();
     void setRouteMode(RouteMode routeMode);
     void toggleSplitTunneling(bool enabled);
+    void toggleDynamicSplitTunneling(bool enabled);
 
     RouteMode getRouteMode() const;
     bool isSplitTunnelingEnabled() const;
+    bool isDynamicSplitTunnelingEnabled() const;
     QVector<QPair<QString, QString>> getCurrentSites() const;
 
     bool importSitesFromJson(const QByteArray& jsonData, bool replaceExisting, QString &errorMessage);
