@@ -59,3 +59,4 @@ This fork is based on [amnezia-vpn/amnezia-client](https://github.com/amnezia-vp
 preserved in the source files. This is an independent, non-commercial, community modification
 and is not produced, reviewed, or supported by the original authors unless explicitly stated
 in a given release.
+# Naiveproxy-master-test-
